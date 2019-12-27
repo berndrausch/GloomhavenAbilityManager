@@ -1,0 +1,40 @@
+﻿@page "/cards"
+
+@using GloomhavenAbilityManager.Data
+@inject IAbilityCardService CardService
+
+<h1>Ability cards</h1>
+
+@if (cards == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Level</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var card in cards)
+            {
+                <tr>
+                    <td>@card.Name</td>
+                    <td>@card.Level</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private IEnumerable<AbilityCardInfo> cards;
+
+    protected override async Task OnInitializedAsync()
+    {
+        cards = await CardService.GetCardsAsync();
+    }
+}
