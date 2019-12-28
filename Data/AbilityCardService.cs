@@ -15,6 +15,12 @@ namespace GloomhavenAbilityManager.Data
             _cardRepository = cardRepository;
         }
 
+        public async Task<AbilityCardInfo> GetCardAsync(int id)
+        {
+            IEnumerable<AbilityCardInfo> allCards = await _cardRepository.GetAllAsync();
+            return allCards.First( c => c.Id == id);
+        }
+
         public async Task<IEnumerable<AbilityCardInfo>> GetCardsAsync(CharacterClass characterClass)
         {
             IEnumerable<AbilityCardInfo> allCards = await _cardRepository.GetAllAsync();
