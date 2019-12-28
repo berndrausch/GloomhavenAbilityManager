@@ -28,7 +28,6 @@ namespace GloomhavenAbilityManager
         {
             services.AddRazorPages();
             services.AddServerSideBlazor();
-            services.AddSingleton<WeatherForecastService>();
             services.AddSingleton<IAbilityCardRepository, AbilityCardRepository>();
             services.AddSingleton<IAbilityCardService, AbilityCardService>();
         }
