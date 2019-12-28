@@ -14,6 +14,7 @@ else
     <table class="table">
         <thead>
             <tr>
+                <th>Class</th>
                 <th>Name</th>
                 <th>Level</th>
             </tr>
@@ -22,6 +23,7 @@ else
             @foreach (var card in cards)
             {
                 <tr>
+                    <td>@ClassToString(card.Class)</td>
                     <td>@card.Name</td>
                     <td>@card.Level</td>
                 </tr>
@@ -36,5 +38,16 @@ else
     protected override async Task OnInitializedAsync()
     {
         cards = await CardService.GetCardsAsync();
+    }
+
+    private string ClassToString(CharacterClass characterClass)
+    {
+        switch (characterClass)
+        {
+            case CharacterClass.Cragheart : return "Felsenherz";
+            case CharacterClass.Tinkerer : return "Tüftler";
+        }
+
+        return characterClass.ToString();
     }
 }

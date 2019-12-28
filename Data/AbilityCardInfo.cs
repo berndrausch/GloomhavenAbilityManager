@@ -4,6 +4,8 @@ namespace GloomhavenAbilityManager.Data
 {
     public class AbilityCardInfo
     {
+        public CharacterClass Class { get; set; }
+        
         public string Level { get; set; }
 
         public string Name { get; set; }
