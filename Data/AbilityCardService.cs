@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace GloomhavenAbilityManager.Data
@@ -14,9 +15,20 @@ namespace GloomhavenAbilityManager.Data
             _cardRepository = cardRepository;
         }
 
-        public async Task<IEnumerable<AbilityCardInfo>> GetCardsAsync()
+        public async Task<IEnumerable<AbilityCardInfo>> GetCardsAsync(CharacterClass characterClass)
         {
-            return await _cardRepository.GetAllAsync();          
+            IEnumerable<AbilityCardInfo> allCards = await _cardRepository.GetAllAsync();
+            return Filter(allCards, characterClass);       
+        }
+
+        private IEnumerable<AbilityCardInfo> Filter(IEnumerable<AbilityCardInfo> cardInfos, CharacterClass characterClass)
+        {
+            if (characterClass == CharacterClass.All)
+            {
+                return cardInfos;
+            }
+
+            return cardInfos.Where( c => c.Class == characterClass);   
         }
     }
 }

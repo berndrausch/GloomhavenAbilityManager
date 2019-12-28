@@ -1,9 +1,9 @@
-﻿@page "/cards"
+﻿@page "/cards/{ClassAsString}"
 
 @using GloomhavenAbilityManager.Data
 @inject IAbilityCardService CardService
 
-<h1>Ability cards</h1>
+<h1>Ability cards (@ClassToString(CharacterClass))</h1>
 
 @if (cards == null)
 {
@@ -34,10 +34,26 @@ else
 
 @code {
     private IEnumerable<AbilityCardInfo> cards;
+    
+    [Parameter]
+    public string  ClassAsString {get; set; } = "All";
+
+    public CharacterClass CharacterClass
+    {
+        get
+        {
+            if (Enum.TryParse(ClassAsString, out CharacterClass characterClass))
+            {
+                return characterClass;
+            }
+
+            return CharacterClass.All;
+        }
+    }
 
     protected override async Task OnInitializedAsync()
     {
-        cards = await CardService.GetCardsAsync();
+        cards = await CardService.GetCardsAsync(CharacterClass);
     }
 
     private string ClassToString(CharacterClass characterClass)

@@ -5,6 +5,6 @@ namespace GloomhavenAbilityManager.Data
 {
     public interface IAbilityCardService
     {
-        Task<IEnumerable<AbilityCardInfo>> GetCardsAsync();
+        Task<IEnumerable<AbilityCardInfo>> GetCardsAsync(CharacterClass characterClass);
     }
 }
