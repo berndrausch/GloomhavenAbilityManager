@@ -30,6 +30,7 @@ namespace GloomhavenAbilityManager
             services.AddServerSideBlazor();
             services.AddSingleton<IAbilityCardRepository, AbilityCardRepository>();
             services.AddSingleton<IAbilityCardService, AbilityCardService>();
+            services.AddSingleton<ICharacterClassService, CharacterClassService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

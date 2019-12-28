@@ -21,6 +21,7 @@ namespace GloomhavenAbilityManager.Data
                     new AbilityCardInfo{Id = 8, Name = "Tinkerer 4", Level = "3", Class = CharacterClass.Tinkerer},
                     new AbilityCardInfo{Id = 9, Name = "Tinkerer 5", Level = "X", Class = CharacterClass.Tinkerer},
                     new AbilityCardInfo{Id = 10, Name = "Tinkerer 6", Level = "X", Class = CharacterClass.Tinkerer},
+                    new AbilityCardInfo{Id = 11, Name = "Brute 1", Level = "1", Class = CharacterClass.Brute},
                 });
         }
     }
