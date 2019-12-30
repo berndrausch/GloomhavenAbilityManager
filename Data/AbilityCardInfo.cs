@@ -1,10 +1,8 @@
-using System;
-
 namespace GloomhavenAbilityManager.Data
 {
     public class AbilityCardInfo
     {
-        public int Id {get;set;}
+        public int Id { get; set; }
 
         public int ClassId { get; set; }
 
@@ -12,8 +10,8 @@ namespace GloomhavenAbilityManager.Data
 
         public string Name { get; set; }
 
-        public string ImagePath  { get; set; }
+        public string ImagePath { get; set; }
 
-        public bool IsSelected  { get; set; }
+        public bool IsSelected { get; set; }
     }
 }
