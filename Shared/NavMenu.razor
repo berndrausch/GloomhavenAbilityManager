@@ -1,9 +1,8 @@
 ﻿@using GloomhavenAbilityManager.Data
-@inject ICharacterClassService ClassService
 @inject ICharacterService CharacterService
 
 <div class="top-row pl-4 navbar navbar-dark">
-    <a class="navbar-brand" href="">Gloomhaven Ability Manager</a>
+    <a class="navbar-brand" href="">Gloomhaven</a>
     <button class="navbar-toggler" @onclick="ToggleNavMenu">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -16,25 +15,6 @@
                 <span class="oi oi-home" aria-hidden="true"></span> Home
             </NavLink>
         </li>
-        <li class="nav-item px-3">
-            <NavLink class="nav-link" href="card\4">
-                <span class="oi oi-list-rich" aria-hidden="true"></span> Single card
-            </NavLink>
-        </li>
-        <li class="nav-item px-3">
-            <NavLink class="nav-link" href="cards\0">
-                <span class="oi oi-list-rich" aria-hidden="true"></span> All
-            </NavLink>
-        </li>
-
-        @foreach (var characterClass in classes)
-        {
-            <li class="nav-item px-3">
-                <NavLink class="nav-link" href=@($"cards\\{characterClass.Id}")>
-                    <span class="oi oi-list-rich" aria-hidden="true"></span> @characterClass.Name
-                </NavLink>
-            </li>
-        }
 
         @foreach (var character in characters)
         {
@@ -50,14 +30,12 @@
 @code {
     private bool collapseNavMenu = true;
 
-    private IEnumerable<CharacterClass> classes;
     private IEnumerable<Character> characters;
 
     private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
 
     protected override async Task OnInitializedAsync()
     {
-        classes = await ClassService.GetClassesAsync();
         characters = await CharacterService.GetCharactersAsync();
     }
 
