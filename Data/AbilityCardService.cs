@@ -21,20 +21,15 @@ namespace GloomhavenAbilityManager.Data
             return allCards.First( c => c.Id == id);
         }
 
-        public async Task<IEnumerable<AbilityCardInfo>> GetCardsAsync(CharacterClass characterClass)
+        public async Task<IEnumerable<AbilityCardInfo>> GetCardsAsync(int classId)
         {
             IEnumerable<AbilityCardInfo> allCards = await _cardRepository.GetAllAsync();
-            return Filter(allCards, characterClass);       
+            return Filter(allCards, classId);       
         }
 
-        private IEnumerable<AbilityCardInfo> Filter(IEnumerable<AbilityCardInfo> cardInfos, CharacterClass characterClass)
+        private IEnumerable<AbilityCardInfo> Filter(IEnumerable<AbilityCardInfo> cardInfos, int classId)
         {
-            if (characterClass == CharacterClass.All)
-            {
-                return cardInfos;
-            }
-
-            return cardInfos.Where( c => c.Class == characterClass);   
+            return cardInfos.Where( c => classId <= 0 || c.ClassId == classId);   
         }
     }
 }

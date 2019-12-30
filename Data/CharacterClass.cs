@@ -1,13 +1,12 @@
 namespace GloomhavenAbilityManager.Data
 {
-    public enum CharacterClass
+    public class CharacterClass
     {
-        All,
-        Brute,
-        Cragheart,
-        Mindthief,
-        Scoundrel,
-        Spellweaver,
-        Tinkerer
+        
+
+        public int Id {get;set;}
+
+        public string Name { get; set; }
+    
     }
 }

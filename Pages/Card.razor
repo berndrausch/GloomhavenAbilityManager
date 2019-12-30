@@ -1,7 +1,8 @@
-@page "/card/{id}"
+@page "/card/{CardIdParameter}"
 
 @using GloomhavenAbilityManager.Data
 @inject IAbilityCardService CardService
+@inject ICharacterClassService ClassService
 
 @if (card == null)
 {
@@ -9,35 +10,24 @@
 }
 else
 {
-    <p>@card.Name (@ClassToString(card.Class) @card.Level)</p>
+    <p>@card.Name (@ClassService.GetClass(card.ClassId).Name @card.Level)</p>
     <img src="@card.ImagePath" height="320" width="240">
 }
 
 @code {
     
     [Parameter]
-    public string Id {get; set; } = "0";
+    public string CardIdParameter {get; set; } = "0";
 
     private AbilityCardInfo card;
 
     protected override async Task OnInitializedAsync()
     {
-        if ( ! int.TryParse(Id, out int _id))
+        if ( ! int.TryParse(CardIdParameter, out int _id))
         {
             _id = 0;
         }
 
         card = await CardService.GetCardAsync(_id);
-    }
-
-    private string ClassToString(CharacterClass characterClass)
-    {
-        switch (characterClass)
-        {
-            case CharacterClass.Cragheart : return "Felsenherz";
-            case CharacterClass.Tinkerer : return "Tüftler";
-        }
-
-        return characterClass.ToString();
     }
 }

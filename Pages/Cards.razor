@@ -1,9 +1,10 @@
-﻿@page "/cards/{ClassAsString}"
+﻿@page "/cards/{ClassIdParameter}"
 
 @using GloomhavenAbilityManager.Data
 @inject IAbilityCardService CardService
+@inject ICharacterClassService ClassService
 
-<h1>Ability cards (@ClassToString(CharacterClass))</h1>
+<h1>Ability cards (@characterClass.Name)</h1>
 
 @if (cards == null)
 {
@@ -23,7 +24,7 @@ else
             @foreach (var card in cards)
             {
                 <tr>
-                    <td>@ClassToString(card.Class)</td>
+                    <td>@ClassService.GetClass(card.ClassId).Name</td>
                     <td>@card.Name</td>
                     <td>@card.Level</td>
                 </tr>
@@ -36,34 +37,20 @@ else
     private IEnumerable<AbilityCardInfo> cards;
     
     [Parameter]
-    public string  ClassAsString {get; set; } = "All";
+    public string  ClassIdParameter {get; set; } = "All";
 
-    public CharacterClass CharacterClass
-    {
-        get
-        {
-            if (Enum.TryParse(ClassAsString, out CharacterClass characterClass))
-            {
-                return characterClass;
-            }
+    private int classId = 0;
 
-            return CharacterClass.All;
-        }
-    }
+    private CharacterClass characterClass;
 
     protected override async Task OnInitializedAsync()
     {
-        cards = await CardService.GetCardsAsync(CharacterClass);
-    }
-
-    private string ClassToString(CharacterClass characterClass)
-    {
-        switch (characterClass)
+        if (! int.TryParse(ClassIdParameter, out classId))
         {
-            case CharacterClass.Cragheart : return "Felsenherz";
-            case CharacterClass.Tinkerer : return "Tüftler";
+            classId = 0;
         }
 
-        return characterClass.ToString();
+        cards = await CardService.GetCardsAsync(classId);
+        characterClass = ClassService.GetClass(classId);
     }
 }

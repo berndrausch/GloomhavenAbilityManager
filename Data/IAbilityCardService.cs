@@ -7,6 +7,6 @@ namespace GloomhavenAbilityManager.Data
     {
         Task<AbilityCardInfo> GetCardAsync(int id);
 
-        Task<IEnumerable<AbilityCardInfo>> GetCardsAsync(CharacterClass characterClass);
+        Task<IEnumerable<AbilityCardInfo>> GetCardsAsync(int characterClassId);
     }
 }

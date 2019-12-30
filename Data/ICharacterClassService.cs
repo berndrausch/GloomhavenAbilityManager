@@ -4,7 +4,8 @@ using System.Threading.Tasks;
 namespace GloomhavenAbilityManager.Data
 {
     public interface ICharacterClassService
-{
-    public Task<IEnumerable<CharacterClass>> GetClassesAsync();
-}
+    {
+        CharacterClass GetClass(int id);
+        Task<IEnumerable<CharacterClass>> GetClassesAsync();
+    }
 }
