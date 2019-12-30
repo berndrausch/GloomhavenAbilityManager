@@ -1,0 +1,28 @@
+@using GloomhavenAbilityManager.Data
+@inject IAbilityCardService CardService
+@inject ICharacterClassService ClassService
+
+@if (card == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <p>
+        <input type="checkbox" @bind="card.IsSelected" />
+        @card.Name (@ClassService.GetClass(card.ClassId).Name @card.Level)
+    </p>
+}
+
+@code {
+
+    [Parameter]
+    public int CardId { get; set; } = 0;
+
+    private AbilityCardInfo card;
+
+    protected override async Task OnInitializedAsync()
+    {
+        card = await CardService.GetCardAsync(CardId);
+    }
+}

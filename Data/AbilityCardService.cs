@@ -7,7 +7,7 @@ namespace GloomhavenAbilityManager.Data
     public class AbilityCardService : IAbilityCardService
     {
         private readonly IAbilityCardRepository _cardRepository;
-
+        
         public AbilityCardService(IAbilityCardRepository cardRepository)
         {
             _cardRepository = cardRepository;

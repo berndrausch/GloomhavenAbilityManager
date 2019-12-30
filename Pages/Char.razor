@@ -11,10 +11,58 @@
 }
 else
 {
-    <p>@character.Name (@ClassService.GetClass(character.ClassId).Name)</p>
-    <p>Selected Cards: @character.SelectedCardIds.Count()</p>
-    <p>Available Cards: @character.AvailableCardIds.Count()</p>
-            
+    <h1>@character.Name (@characterClass.Name)</h1>
+    <p>Available Cards: @characterClass.NumberOfCards</p>
+
+    <h2>All cards</h2>
+    @* @foreach (var card in availableCards)
+    {
+        <p>
+            <input type="checkbox" value="@card.IsSelected" @onchange="eventArgs => { OnCardIsSelectedChanged(card, (bool) eventArgs.Value); }" /> @card.Name 
+            <input type="checkbox" value="@card.IsSelected" @onchange="OnCardIsSelectedChanged2" /> @card.Name 
+            <br><img src="@card.ImagePath" height="320" width="240">
+        </p>
+    } *@
+
+    
+    @for (int row = 0; row <= availableCards.Count / cardsPerRow; row++)
+    {
+        <tr>
+  
+        @for (int col = 0; col < cardsPerRow; col++)
+        {
+            @if (row * cardsPerRow + col < availableCards.Count)
+            {
+                var card = availableCards[row * cardsPerRow + col];
+                <td>
+                    <input type="checkbox" value="@card.IsSelected" @onchange="eventArgs => { OnCardIsSelectedChanged(card, (bool) eventArgs.Value); }" /> 
+                    @availableCards[row * cardsPerRow + col].Name 
+                    <br><img src="@card.ImagePath" height="320" width="240">
+                </td>
+            }
+        }
+        </tr>  
+    } 
+
+    <h2>Selected cards (@selectedCards.Count / @characterClass.NumberOfCards)</h2>
+    <table class="table">
+
+    @for (int row = 0; row <= selectedCards.Count / cardsPerRow; row++)
+    {
+        <tr>
+  
+        @for (int col = 0; col < cardsPerRow; col++)
+        {
+            @if (row * cardsPerRow + col < selectedCards.Count)
+            {
+                var card = selectedCards[row * cardsPerRow + col];
+                <td>@card.Name<br><img src="@card.ImagePath" height="320" width="240"></td>
+            }
+        }
+        </tr>  
+    } 
+
+    </table>
 }
 
 @code {
@@ -22,15 +70,41 @@ else
     [Parameter]
     public string CharacterIdParameter { get; set; } = "0";
 
+    private int cardsPerRow = 4;
+
     private Character character;
+    private CharacterClass characterClass;
+
+    private List<AbilityCardInfo> availableCards;
+    private List<AbilityCardInfo> selectedCards;
 
     protected override void OnInitialized()
     {
         if (!int.TryParse(CharacterIdParameter, out int _id))
         {
-        _id = 0;
+            _id = 0;
         }
 
         character = CharacterService.GetCharacter(_id);
+        characterClass = ClassService.GetClass(character.ClassId);
+        availableCards = character.AvailableCardIds.Select(id => CardService.GetCardAsync(id)).Select(t => t.Result).ToList();
+        UpdateSelecedCards();
+    }
+
+    private void OnCardIsSelectedChanged(AbilityCardInfo card, bool newValue)
+    {
+        card.IsSelected = newValue;
+        UpdateSelecedCards();
+    }
+
+     private void OnCardIsSelectedChanged2(ChangeEventArgs e)
+    {
+      
+        UpdateSelecedCards();
+    }
+
+    private void UpdateSelecedCards()
+    {
+        selectedCards = availableCards.Where(c => c.IsSelected).ToList();
     }
 }
