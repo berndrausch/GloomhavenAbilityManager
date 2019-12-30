@@ -1,5 +1,6 @@
 ﻿@using GloomhavenAbilityManager.Data
 @inject ICharacterClassService ClassService
+@inject ICharacterService CharacterService
 
 <div class="top-row pl-4 navbar navbar-dark">
     <a class="navbar-brand" href="">Gloomhaven Ability Manager</a>
@@ -34,6 +35,15 @@
                 </NavLink>
             </li>
         }
+
+        @foreach (var character in characters)
+        {
+            <li class="nav-item px-3">
+                <NavLink class="nav-link" href=@($"char\\{character.Id}")>
+                    <span class="oi oi-list-rich" aria-hidden="true"></span> @character.Name
+                </NavLink>
+            </li>
+        }
     </ul>
 </div>
 
@@ -41,12 +51,14 @@
     private bool collapseNavMenu = true;
 
     private IEnumerable<CharacterClass> classes;
+    private IEnumerable<Character> characters;
 
     private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
 
     protected override async Task OnInitializedAsync()
     {
         classes = await ClassService.GetClassesAsync();
+        characters = await CharacterService.GetCharactersAsync();
     }
 
     private void ToggleNavMenu()

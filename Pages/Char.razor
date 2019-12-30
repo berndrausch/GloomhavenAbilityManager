@@ -1,0 +1,36 @@
+@page "/char/{CharacterIdParameter}"
+
+@using GloomhavenAbilityManager.Data
+@inject IAbilityCardService CardService
+@inject ICharacterClassService ClassService
+@inject ICharacterService CharacterService
+
+@if (character == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <p>@character.Name (@ClassService.GetClass(character.ClassId).Name)</p>
+    <p>Selected Cards: @character.SelectedCardIds.Count()</p>
+    <p>Available Cards: @character.AvailableCardIds.Count()</p>
+            
+}
+
+@code {
+
+    [Parameter]
+    public string CharacterIdParameter { get; set; } = "0";
+
+    private Character character;
+
+    protected override void OnInitialized()
+    {
+        if (!int.TryParse(CharacterIdParameter, out int _id))
+        {
+        _id = 0;
+        }
+
+        character = CharacterService.GetCharacter(_id);
+    }
+}
