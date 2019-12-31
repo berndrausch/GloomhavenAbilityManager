@@ -1,3 +1,16 @@
 ﻿@page "/"
+@using GloomhavenAbilityManager.DataAccess.Csv
+@inject Dummy Test
+
+<p>Message: @Message</p>
 
 <Cards ClassIdParameter="0"></Cards>
+
+@code {
+    private string Message;
+
+    protected override void OnInitialized()
+    {
+        Message = Test.CurrentDirectory;
+    }
+}

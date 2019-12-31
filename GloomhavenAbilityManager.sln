@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29613.14
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GloomhavenAbilityManager", "Blazor\GloomhavenAbilityManager.Blazor.csproj", "{7E7C1C19-B23C-4CC7-8538-93620067060C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GloomhavenAbilityManager.Blazor", "Blazor\GloomhavenAbilityManager.Blazor.csproj", "{7E7C1C19-B23C-4CC7-8538-93620067060C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GloomhavenAbilityManager.DataAccess.Csv", "DataAccess.Csv\GloomhavenAbilityManager.DataAccess.Csv.csproj", "{63FC3EE9-EBDD-4D91-B7A1-93F98678EB24}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{7E7C1C19-B23C-4CC7-8538-93620067060C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7E7C1C19-B23C-4CC7-8538-93620067060C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7E7C1C19-B23C-4CC7-8538-93620067060C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{63FC3EE9-EBDD-4D91-B7A1-93F98678EB24}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{63FC3EE9-EBDD-4D91-B7A1-93F98678EB24}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{63FC3EE9-EBDD-4D91-B7A1-93F98678EB24}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{63FC3EE9-EBDD-4D91-B7A1-93F98678EB24}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

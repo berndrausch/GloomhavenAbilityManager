@@ -10,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using GloomhavenAbilityManager.Blazor.Data;
+using GloomhavenAbilityManager.DataAccess.Csv;
 
 namespace GloomhavenAbilityManager.Blazor
 {
@@ -32,6 +33,7 @@ namespace GloomhavenAbilityManager.Blazor
             services.AddSingleton<IAbilityCardService, AbilityCardService>();
             services.AddSingleton<ICharacterClassService, CharacterClassService>();
             services.AddSingleton<ICharacterService, CharacterService>();
+            services.AddSingleton<Dummy>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
