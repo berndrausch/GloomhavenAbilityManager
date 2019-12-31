@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace GloomhavenAbilityManager.Data
+namespace GloomhavenAbilityManager.Blazor.Data
 {
     public interface IAbilityCardRepository
     {

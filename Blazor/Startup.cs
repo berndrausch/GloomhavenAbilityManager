@@ -9,9 +9,9 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using GloomhavenAbilityManager.Data;
+using GloomhavenAbilityManager.Blazor.Data;
 
-namespace GloomhavenAbilityManager
+namespace GloomhavenAbilityManager.Blazor
 {
     public class Startup
     {

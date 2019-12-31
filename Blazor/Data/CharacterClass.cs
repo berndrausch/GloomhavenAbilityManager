@@ -1,4 +1,4 @@
-namespace GloomhavenAbilityManager.Data
+namespace GloomhavenAbilityManager.Blazor.Data
 {
     public class CharacterClass
     {
