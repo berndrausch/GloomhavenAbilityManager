@@ -1,6 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
   <ItemGroup>
+    <ProjectReference Include="..\Logic\GloomhavenAbilityManager.Logic.csproj" />
     <ProjectReference Include="..\DataAccess.Csv\GloomhavenAbilityManager.DataAccess.Csv.csproj" />
   </ItemGroup>
 

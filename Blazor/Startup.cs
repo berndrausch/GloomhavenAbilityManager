@@ -9,7 +9,8 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using GloomhavenAbilityManager.Blazor.Data;
+using GloomhavenAbilityManager.Logic.Contracts;
+using GloomhavenAbilityManager.Logic.Services;
 using GloomhavenAbilityManager.DataAccess.Csv;
 
 namespace GloomhavenAbilityManager.Blazor
