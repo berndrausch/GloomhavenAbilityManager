@@ -1,0 +1,13 @@
+Id;ClassId;Level;Name;ImagePath;IsSelected
+0;2;1;Cragheart 1;;false 
+1;2;1;Cragheart 2;;false 
+2;2;2;Cragheart 3;;false 
+3;2;3;Cragheart 4;;false 
+4;2;X;Cragheart 5;\images\04.png;false
+5;3;1;Tinkerer 1;;false 
+6;3;1;Tinkerer 2;;false 
+7;3;2;Tinkerer 3;;false 
+8;3;3;Tinkerer 4;;false 
+9;3;X;Tinkerer 5;;false 
+10;3;X;Tinkerer 6;;false 
+11;1;1;Brute 1;;false 
