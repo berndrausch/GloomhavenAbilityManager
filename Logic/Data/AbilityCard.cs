@@ -1,6 +1,6 @@
 namespace GloomhavenAbilityManager.Logic.Data
 {
-    public class AbilityCardInfo
+    public class AbilityCard
     {
         public int Id { get; set; }
 

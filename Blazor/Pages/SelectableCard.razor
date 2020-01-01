@@ -20,10 +20,10 @@ else
     [Parameter]
     public int CardId { get; set; } = 0;
 
-    private AbilityCardInfo card;
+    private AbilityCard card;
 
-    protected override async Task OnInitializedAsync()
+    protected override void OnInitialized()
     {
-        card = await CardService.GetCardAsync(CardId);
+        card = CardService.GetCard(CardId);
     }
 }

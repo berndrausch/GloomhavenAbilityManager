@@ -6,8 +6,8 @@ namespace GloomhavenAbilityManager.Logic.Contracts
 {
     public interface IAbilityCardService
     {
-        Task<AbilityCardInfo> GetCardAsync(int id);
+        AbilityCard GetCard(int id);
 
-        Task<IEnumerable<AbilityCardInfo>> GetCardsAsync(int characterClassId);
+        IEnumerable<AbilityCard> GetCharacterClassCards(int characterClassId);
     }
 }

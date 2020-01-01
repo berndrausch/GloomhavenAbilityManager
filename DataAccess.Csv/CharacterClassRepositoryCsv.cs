@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -9,16 +9,16 @@ using GloomhavenAbilityManager.Logic.Data;
 
 namespace GloomhavenAbilityManager.DataAccess.Csv
 {
-    public class AbilityCardRepositoryCsv : IAbilityCardRepository
+    public class CharacterClassRepositoryCsv : ICharacterClassRepository
     {
-       public IEnumerable<AbilityCard> GetAll()
+       public IEnumerable<CharacterClass> GetAll()
         {
-            using (var reader = new StreamReader("DataAccess.Csv\\cards.csv"))
+            using (var reader = new StreamReader("DataAccess.Csv\\classes.csv"))
             {
                 using (var csv = new CsvReader(reader))
                 {    
-                    var records = csv.GetRecords<AbilityCard>().ToList();
-                    return records;
+                    var classes = csv.GetRecords<CharacterClass>().ToList();
+                    return classes;
                 }
             }
         }

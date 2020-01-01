@@ -8,30 +8,23 @@ namespace GloomhavenAbilityManager.Logic.Services
 {
     public class CharacterClassService : ICharacterClassService
     {
+        private readonly ICharacterClassRepository _classRepository;
         private readonly IAbilityCardRepository _cardRepository;
 
-        private readonly CharacterClass[] _allClasses =
+        public CharacterClassService(ICharacterClassRepository classRepository, IAbilityCardRepository cardRepository)
         {
-            new CharacterClass {Id = 0, Name = "Alle", NumberOfCards = 0},
-            new CharacterClass {Id = 1, Name = "Barbar", NumberOfCards = 10},
-            new CharacterClass {Id = 2, Name = "Felsenherz", NumberOfCards = 11},
-            new CharacterClass {Id = 3, Name = "Tüftler", NumberOfCards = 12},
-        };
-
-        public CharacterClassService(IAbilityCardRepository cardRepository)
-        {
+            _classRepository = classRepository;
             _cardRepository = cardRepository;
         }
 
         public CharacterClass GetClass(int id)
         {
-            return _allClasses.FirstOrDefault(c => c.Id == id) ?? _allClasses[0];
+            return _classRepository.GetAll().FirstOrDefault(c => c.Id == id) ?? CharacterClass.Default;
         }
 
-        public async Task<IEnumerable<CharacterClass>> GetClassesAsync()
+        public IEnumerable<CharacterClass> GetClasses()
         {
-            IEnumerable<AbilityCardInfo> allCards = await _cardRepository.GetAllAsync();
-            return allCards.Select(c => c.ClassId).Distinct().Select(GetClass);
+            return _cardRepository.GetAll().Select(c => c.ClassId).Distinct().Select(GetClass);
         }
     }
 }

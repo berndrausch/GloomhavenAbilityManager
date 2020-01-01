@@ -15,19 +15,17 @@ namespace GloomhavenAbilityManager.Logic.Services
             _cardRepository = cardRepository;
         }
 
-        public async Task<AbilityCardInfo> GetCardAsync(int id)
+        public AbilityCard GetCard(int id)
         {
-            IEnumerable<AbilityCardInfo> allCards = await _cardRepository.GetAllAsync();
-            return allCards.First(c => c.Id == id);
+            return _cardRepository.GetAll().First(c => c.Id == id);
         }
 
-        public async Task<IEnumerable<AbilityCardInfo>> GetCardsAsync(int classId)
+        public IEnumerable<AbilityCard> GetCharacterClassCards(int classId)
         {
-            IEnumerable<AbilityCardInfo> allCards = await _cardRepository.GetAllAsync();
-            return Filter(allCards, classId);
+           return Filter(_cardRepository.GetAll(), classId);
         }
 
-        private IEnumerable<AbilityCardInfo> Filter(IEnumerable<AbilityCardInfo> cardInfos, int classId)
+        private IEnumerable<AbilityCard> Filter(IEnumerable<AbilityCard> cardInfos, int classId)
         {
             return cardInfos.Where(c => classId <= 0 || c.ClassId == classId);
         }

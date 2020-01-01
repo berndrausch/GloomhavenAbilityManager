@@ -20,15 +20,15 @@ else
     [Parameter]
     public string CardIdParameter {get; set; } = "0";
 
-    private AbilityCardInfo card;
+    private AbilityCard card;
 
-    protected override async Task OnInitializedAsync()
+    protected override void OnInitialized()
     {
         if ( ! int.TryParse(CardIdParameter, out int _id))
         {
             _id = 0;
         }
 
-        card = await CardService.GetCardAsync(_id);
+        card = CardService.GetCard(_id);
     }
 }

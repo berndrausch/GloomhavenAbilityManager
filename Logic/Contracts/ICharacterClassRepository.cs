@@ -4,8 +4,8 @@ using GloomhavenAbilityManager.Logic.Data;
 
 namespace GloomhavenAbilityManager.Logic.Contracts
 {
-    public interface IAbilityCardRepository
+    public interface ICharacterClassRepository
     {
-        IEnumerable<AbilityCard> GetAll();
+        IEnumerable<CharacterClass> GetAll();
     }
 }

@@ -31,6 +31,8 @@ namespace GloomhavenAbilityManager.Blazor
             services.AddRazorPages();
             services.AddServerSideBlazor();
             services.AddSingleton<IAbilityCardRepository, AbilityCardRepositoryCsv>();
+            services.AddSingleton<ICharacterRepository,CharacterRepositoryCsv>();
+            services.AddSingleton<ICharacterClassRepository, CharacterClassRepositoryCsv>();
             services.AddSingleton<IAbilityCardService, AbilityCardService>();
             services.AddSingleton<ICharacterClassService, CharacterClassService>();
             services.AddSingleton<ICharacterService, CharacterService>();

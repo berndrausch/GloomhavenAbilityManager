@@ -35,7 +35,7 @@ else
 }
 
 @code {
-    private IEnumerable<AbilityCardInfo> cards;
+    private IEnumerable<AbilityCard> cards;
     
     [Parameter]
     public string  ClassIdParameter {get; set; } = "All";
@@ -44,14 +44,14 @@ else
 
     private CharacterClass characterClass;
 
-    protected override async Task OnInitializedAsync()
+    protected override void OnInitialized()
     {
         if (! int.TryParse(ClassIdParameter, out classId))
         {
             classId = 0;
         }
 
-        cards = await CardService.GetCardsAsync(classId);
+        cards = CardService.GetCharacterClassCards(classId);
         characterClass = ClassService.GetClass(classId);
     }
 }

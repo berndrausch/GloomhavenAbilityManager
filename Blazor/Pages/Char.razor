@@ -76,8 +76,8 @@ else
     private Character character;
     private CharacterClass characterClass;
 
-    private List<AbilityCardInfo> availableCards;
-    private List<AbilityCardInfo> selectedCards;
+    private List<AbilityCard> availableCards;
+    private List<AbilityCard> selectedCards;
 
     protected override void OnInitialized()
     {
@@ -88,11 +88,11 @@ else
 
         character = CharacterService.GetCharacter(_id);
         characterClass = ClassService.GetClass(character.ClassId);
-        availableCards = character.AvailableCardIds.Select(id => CardService.GetCardAsync(id)).Select(t => t.Result).ToList();
+        availableCards = character.AvailableCardIds.Select(id => CardService.GetCard(id)).ToList();
         UpdateSelecedCards();
     }
 
-    private void OnCardIsSelectedChanged(AbilityCardInfo card, bool newValue)
+    private void OnCardIsSelectedChanged(AbilityCard card, bool newValue)
     {
         card.IsSelected = newValue;
         UpdateSelecedCards();

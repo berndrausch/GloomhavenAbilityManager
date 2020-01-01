@@ -7,6 +7,6 @@ namespace GloomhavenAbilityManager.Logic.Contracts
     public interface ICharacterClassService
     {
         CharacterClass GetClass(int id);
-        Task<IEnumerable<CharacterClass>> GetClassesAsync();
+        IEnumerable<CharacterClass> GetClasses();
     }
 }
