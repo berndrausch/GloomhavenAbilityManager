@@ -46,7 +46,6 @@ else
     } 
 
     <h2>Selected cards (@selectedCards.Count / @characterClass.NumberOfCards)</h2>
-    <table class="table">
 
     @for (int row = 0; row <= selectedCards.Count / cardsPerRow; row++)
     {
@@ -62,8 +61,6 @@ else
         }
         </tr>  
     } 
-
-    </table>
 }
 
 @code {
