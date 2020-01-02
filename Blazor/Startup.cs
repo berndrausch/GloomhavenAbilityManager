@@ -9,9 +9,11 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using GloomhavenAbilityManager.Data;
+using GloomhavenAbilityManager.Logic.Contracts;
+using GloomhavenAbilityManager.Logic.Services;
+using GloomhavenAbilityManager.DataAccess.Csv;
 
-namespace GloomhavenAbilityManager
+namespace GloomhavenAbilityManager.Blazor
 {
     public class Startup
     {
@@ -28,7 +30,9 @@ namespace GloomhavenAbilityManager
         {
             services.AddRazorPages();
             services.AddServerSideBlazor();
-            services.AddSingleton<IAbilityCardRepository, AbilityCardRepository>();
+            services.AddSingleton<IAbilityCardRepository, AbilityCardRepositoryCsv>();
+            services.AddSingleton<ICharacterRepository,CharacterRepositoryCsv>();
+            services.AddSingleton<ICharacterClassRepository, CharacterClassRepositoryCsv>();
             services.AddSingleton<IAbilityCardService, AbilityCardService>();
             services.AddSingleton<ICharacterClassService, CharacterClassService>();
             services.AddSingleton<ICharacterService, CharacterService>();

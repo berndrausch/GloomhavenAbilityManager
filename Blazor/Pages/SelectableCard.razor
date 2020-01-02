@@ -1,4 +1,5 @@
-@using GloomhavenAbilityManager.Data
+@using GloomhavenAbilityManager.Logic.Contracts
+@using GloomhavenAbilityManager.Logic.Data
 @inject IAbilityCardService CardService
 @inject ICharacterClassService ClassService
 
@@ -19,10 +20,10 @@ else
     [Parameter]
     public int CardId { get; set; } = 0;
 
-    private AbilityCardInfo card;
+    private AbilityCard card;
 
-    protected override async Task OnInitializedAsync()
+    protected override void OnInitialized()
     {
-        card = await CardService.GetCardAsync(CardId);
+        card = CardService.GetCard(CardId);
     }
 }

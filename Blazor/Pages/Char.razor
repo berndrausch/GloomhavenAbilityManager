@@ -1,6 +1,7 @@
 @page "/char/{CharacterIdParameter}"
 
-@using GloomhavenAbilityManager.Data
+@using GloomhavenAbilityManager.Logic.Contracts
+@using GloomhavenAbilityManager.Logic.Data
 @inject IAbilityCardService CardService
 @inject ICharacterClassService ClassService
 @inject ICharacterService CharacterService
@@ -35,7 +36,7 @@ else
             {
                 var card = availableCards[row * cardsPerRow + col];
                 <td>
-                    <input type="checkbox" value="@card.IsSelected" @onchange="eventArgs => { OnCardIsSelectedChanged(card, (bool) eventArgs.Value); }" /> 
+                    <input type="checkbox" checked="@card.IsSelected" @onchange="eventArgs => { OnCardIsSelectedChanged(card, (bool) eventArgs.Value); }" /> 
                     @availableCards[row * cardsPerRow + col].Name 
                     <br><img src="@card.ImagePath" height="320" width="240">
                 </td>
@@ -75,8 +76,8 @@ else
     private Character character;
     private CharacterClass characterClass;
 
-    private List<AbilityCardInfo> availableCards;
-    private List<AbilityCardInfo> selectedCards;
+    private List<AbilityCard> availableCards;
+    private List<AbilityCard> selectedCards;
 
     protected override void OnInitialized()
     {
@@ -87,11 +88,13 @@ else
 
         character = CharacterService.GetCharacter(_id);
         characterClass = ClassService.GetClass(character.ClassId);
-        availableCards = character.AvailableCardIds.Select(id => CardService.GetCardAsync(id)).Select(t => t.Result).ToList();
+        var tempAvailableCards = character.AvailableCardIds.Select(id => CardService.GetCard(id)).ToList();
+        tempAvailableCards.ForEach( c => c.IsSelected = character.SelectedCardIds.Contains(c.Id));
+        availableCards = tempAvailableCards;
         UpdateSelecedCards();
     }
 
-    private void OnCardIsSelectedChanged(AbilityCardInfo card, bool newValue)
+    private void OnCardIsSelectedChanged(AbilityCard card, bool newValue)
     {
         card.IsSelected = newValue;
         UpdateSelecedCards();

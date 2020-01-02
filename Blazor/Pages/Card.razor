@@ -1,0 +1,34 @@
+@page "/card/{CardIdParameter}"
+
+@using GloomhavenAbilityManager.Logic.Contracts
+@using GloomhavenAbilityManager.Logic.Data
+@inject IAbilityCardService CardService
+@inject ICharacterClassService ClassService
+
+@if (card == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <p>@card.Name (@ClassService.GetClass(card.ClassId).Name @card.Level)</p>
+    <img src="@card.ImagePath" height="320" width="240">
+}
+
+@code {
+    
+    [Parameter]
+    public string CardIdParameter {get; set; } = "0";
+
+    private AbilityCard card;
+
+    protected override void OnInitialized()
+    {
+        if ( ! int.TryParse(CardIdParameter, out int _id))
+        {
+            _id = 0;
+        }
+
+        card = CardService.GetCard(_id);
+    }
+}
