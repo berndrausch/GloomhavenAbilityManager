@@ -13,13 +13,32 @@ namespace GloomhavenAbilityManager.DataAccess.Csv
     {
        public IEnumerable<Character> GetAll()
         {
+            List<Character> characters = null;
+            List<CharacterAbilityCardRelation> relations = null;
+
             using (var reader = new StreamReader("DataAccess.Csv\\characters.csv"))
             {
                 using (var csv = new CsvReader(reader))
                 {    
-                   return csv.GetRecords<Character>().ToList();
+                   characters = csv.GetRecords<Character>().ToList();
                 }
             }
+
+            using (var reader = new StreamReader("DataAccess.Csv\\charcards.csv"))
+            {
+                using (var csv = new CsvReader(reader))
+                {    
+                   relations = csv.GetRecords<CharacterAbilityCardRelation>().ToList();
+                }
+            }
+
+            foreach(Character character in characters)
+            {
+                character.AvailableCardIds = relations.Where(rel => rel.CharacterId == character.Id).Select(rel => rel.AbilityCardId);
+                character.SelectedCardIds = relations.Where(rel => rel.IsSelected && rel.CharacterId == character.Id).Select(rel => rel.AbilityCardId);
+            }
+
+            return characters;
         }
     }
 }

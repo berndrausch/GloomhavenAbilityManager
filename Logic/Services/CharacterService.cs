@@ -26,11 +26,7 @@ namespace GloomhavenAbilityManager.Logic.Services
         public IEnumerable<Character> GetCharacters()
         {
             var allcharacters = _characterRepository.GetAll();
-            foreach(Character character in allcharacters)
-            {
-                character.AvailableCardIds = _cardService.GetCharacterClassCards(character.ClassId).Select(card => card.Id);
-            }
-
+            
             return allcharacters;
         }
     }
