@@ -7,5 +7,7 @@ namespace GloomhavenAbilityManager.Logic.Contracts
     public interface ICharacterRepository
     {
         IEnumerable<Character> GetAll();
+
+        void SaveAll(IEnumerable<Character> characters);
     }
 }

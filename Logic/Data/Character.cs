@@ -9,6 +9,7 @@ namespace GloomhavenAbilityManager.Logic.Data
         public int Id { get; set; }
         public string Name { get; set; }
         public int ClassId { get; set; }
+
         public IEnumerable<int> AvailableCardIds { get; set; }
         public IEnumerable<int> SelectedCardIds { get; set; }
 

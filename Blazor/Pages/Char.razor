@@ -46,7 +46,7 @@ else
     } 
 
     <h2>Selected cards (@selectedCards.Count / @characterClass.NumberOfCards)</h2>
-
+    <button @onclick="SaveCards">Save selected cards</button>
     @for (int row = 0; row <= selectedCards.Count / cardsPerRow; row++)
     {
         <tr>
@@ -89,6 +89,12 @@ else
         tempAvailableCards.ForEach( c => c.IsSelected = character.SelectedCardIds.Contains(c.Id));
         availableCards = tempAvailableCards;
         UpdateSelecedCards();
+    }
+
+    private void SaveCards()
+    {
+        character.SelectedCardIds = availableCards.Where(c => c.IsSelected).Select(c => c.Id);
+        CharacterService.UpdateCharacter(character);
     }
 
     private void OnCardIsSelectedChanged(AbilityCard card, bool newValue)

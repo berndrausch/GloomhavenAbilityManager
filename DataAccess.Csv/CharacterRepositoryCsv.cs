@@ -40,5 +40,42 @@ namespace GloomhavenAbilityManager.DataAccess.Csv
 
             return characters;
         }
+
+        public void SaveAll(IEnumerable<Character> characters)
+        {
+            List<CharacterAbilityCardRelation> relations = new List<CharacterAbilityCardRelation>();
+            foreach(Character character in characters)
+            {
+                foreach(int cardId in character.AvailableCardIds)
+                {
+                    var rel = new CharacterAbilityCardRelation()
+                    {
+                        CharacterId = character.Id,
+                        AbilityCardId = cardId,
+                        IsSelected = character.SelectedCardIds.Contains(cardId)
+                    };
+                    relations.Add(rel);
+                }
+                character.AvailableCardIds = null;
+                character.SelectedCardIds = null;
+            }
+
+            using (var writer = new StreamWriter("DataAccess.Csv\\charcards.csv"))
+            {
+                using (var csv = new CsvWriter(writer))
+                {    
+                   csv.WriteRecords(relations);
+                }
+            }
+
+
+            using (var writer = new StreamWriter("DataAccess.Csv\\characters.csv"))
+            {
+                using (var csv = new CsvWriter(writer))
+                {    
+                   csv.WriteRecords(characters);
+                }
+            }
+        }
     }
 }

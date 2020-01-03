@@ -23,6 +23,14 @@ namespace GloomhavenAbilityManager.Logic.Services
             return GetCharacters().FirstOrDefault(c => c.Id == id) ?? Character.Default;
         }
 
+        public void UpdateCharacter(Character character)
+        {
+            var allCharacters = _characterRepository.GetAll().ToList();
+            allCharacters.RemoveAll(c => c.Id == character.Id);
+            allCharacters.Add(character);
+            _characterRepository.SaveAll(allCharacters);
+        }
+
         public IEnumerable<Character> GetCharacters()
         {
             var allcharacters = _characterRepository.GetAll();
