@@ -65,8 +65,22 @@ else
 
 @code {
 
+    private string characterIdParameter = "0";
+
     [Parameter]
-    public string CharacterIdParameter { get; set; } = "0";
+    public string CharacterIdParameter 
+    { 
+        get 
+        {
+            return characterIdParameter;
+        } 
+
+        set
+        {
+            characterIdParameter = value;
+            OnCharacterIdParameterChanged();
+        } 
+    } 
 
     private int cardsPerRow = 4;
 
@@ -76,7 +90,7 @@ else
     private List<AbilityCard> availableCards;
     private List<AbilityCard> selectedCards;
 
-    protected override void OnInitialized()
+    private void OnCharacterIdParameterChanged()
     {
         if (!int.TryParse(CharacterIdParameter, out int _id))
         {
