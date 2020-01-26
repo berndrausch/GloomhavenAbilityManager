@@ -16,15 +16,6 @@ else
     <p>Available Cards: @characterClass.NumberOfCards</p>
 
     <h2>All cards</h2>
-    @* @foreach (var card in availableCards)
-    {
-        <p>
-            <input type="checkbox" value="@card.IsSelected" @onchange="eventArgs => { OnCardIsSelectedChanged(card, (bool) eventArgs.Value); }" /> @card.Name 
-            <input type="checkbox" value="@card.IsSelected" @onchange="OnCardIsSelectedChanged2" /> @card.Name 
-            <br><img src="@card.ImagePath" height="320" width="240">
-        </p>
-    } *@
-
     
     @for (int row = 0; row <= availableCards.Count / cardsPerRow; row++)
     {
