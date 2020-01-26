@@ -10,13 +10,13 @@ namespace GloomhavenAbilityManager.Logic.Data
         public string Name { get; set; }
         public int ClassId { get; set; }
 
-        public IEnumerable<int> AvailableCardIds { get; set; }
-        public IEnumerable<int> SelectedCardIds { get; set; }
+        public IEnumerable<AbilityCard> AvailableCards { get; set; }
+        public IEnumerable<AbilityCard> SelectedCards { get; set; }
 
         public Character()
         {
-            AvailableCardIds = new int[0];
-            SelectedCardIds = new int[0];        
+            AvailableCards = new AbilityCard[0];
+            SelectedCards = new AbilityCard[0];        
         }
     }
 }

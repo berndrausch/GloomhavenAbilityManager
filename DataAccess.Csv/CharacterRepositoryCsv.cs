@@ -11,34 +11,47 @@ namespace GloomhavenAbilityManager.DataAccess.Csv
 {
     public class CharacterRepositoryCsv : ICharacterRepository
     {
-       public IEnumerable<Character> GetAll()
+        private IAbilityCardRepository _cardRepository;
+        public CharacterRepositoryCsv(IAbilityCardRepository cardRepository)
         {
-            List<Character> characters = null;
-            List<CharacterAbilityCardRelation> relations = null;
+            _cardRepository = cardRepository;
+        }
 
-            using (var reader = new StreamReader("DataAccess.Csv\\characters.csv"))
-            {
-                using (var csv = new CsvReader(reader))
-                {    
-                   characters = csv.GetRecords<Character>().ToList();
-                }
-            }
-
-            using (var reader = new StreamReader("DataAccess.Csv\\charcards.csv"))
-            {
-                using (var csv = new CsvReader(reader))
-                {    
-                   relations = csv.GetRecords<CharacterAbilityCardRelation>().ToList();
-                }
-            }
+        public IEnumerable<Character> GetAll()
+        {
+            List<Character> characters = ReadCharacters();
+            List<CharacterAbilityCardRelation> relations = ReadRelations();
+            List<AbilityCard> cards = _cardRepository.GetAll().ToList();
 
             foreach(Character character in characters)
             {
-                character.AvailableCardIds = relations.Where(rel => rel.CharacterId == character.Id).Select(rel => rel.AbilityCardId);
-                character.SelectedCardIds = relations.Where(rel => rel.IsSelected && rel.CharacterId == character.Id).Select(rel => rel.AbilityCardId);
+                character.AvailableCards = relations.Where(rel => rel.CharacterId == character.Id).Select(rel => cards.FirstOrDefault( card => card.Id == rel.AbilityCardId));
+                character.SelectedCards = relations.Where(rel => rel.IsSelected && rel.CharacterId == character.Id).Select(rel => cards.FirstOrDefault( card => card.Id == rel.AbilityCardId));
             }
 
             return characters;
+        }
+
+        private List<Character> ReadCharacters()
+        {
+            using (var reader = new StreamReader("DataAccess.Csv\\characters.csv"))
+            {
+                using (var csv = new CsvReader(reader))
+                {
+                    return csv.GetRecords<Character>().ToList();
+                }
+            }
+        }
+
+        private List<CharacterAbilityCardRelation> ReadRelations()
+        {
+             using (var reader = new StreamReader("DataAccess.Csv\\charcards.csv"))
+            {
+                using (var csv = new CsvReader(reader))
+                {    
+                   return csv.GetRecords<CharacterAbilityCardRelation>().ToList();
+                }
+            }
         }
 
         public void SaveAll(IEnumerable<Character> characters)
@@ -46,18 +59,18 @@ namespace GloomhavenAbilityManager.DataAccess.Csv
             List<CharacterAbilityCardRelation> relations = new List<CharacterAbilityCardRelation>();
             foreach(Character character in characters)
             {
-                foreach(int cardId in character.AvailableCardIds)
+                foreach(int cardId in character.AvailableCards.Select(card => card.Id))
                 {
                     var rel = new CharacterAbilityCardRelation()
                     {
                         CharacterId = character.Id,
                         AbilityCardId = cardId,
-                        IsSelected = character.SelectedCardIds.Contains(cardId)
+                        IsSelected = character.SelectedCards.Any(card => card.Id == cardId)
                     };
                     relations.Add(rel);
                 }
-                character.AvailableCardIds = null;
-                character.SelectedCardIds = null;
+                character.AvailableCards = null;
+                character.SelectedCards = null;
             }
 
             using (var writer = new StreamWriter("DataAccess.Csv\\charcards.csv"))

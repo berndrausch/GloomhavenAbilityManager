@@ -99,15 +99,15 @@ else
 
         character = CharacterService.GetCharacter(_id);
         characterClass = ClassService.GetClass(character.ClassId);
-        var tempAvailableCards = character.AvailableCardIds.Select(id => CardService.GetCard(id)).ToList();
-        tempAvailableCards.ForEach( c => c.IsSelected = character.SelectedCardIds.Contains(c.Id));
+        var tempAvailableCards = new List<AbilityCard>(character.AvailableCards);
+        tempAvailableCards.ForEach( c => c.IsSelected = character.SelectedCards.Any( card => card.Id == c.Id));
         availableCards = tempAvailableCards;
         UpdateSelecedCards();
     }
 
     private void SaveCards()
     {
-        character.SelectedCardIds = availableCards.Where(c => c.IsSelected).Select(c => c.Id);
+        character.SelectedCards = new List<AbilityCard>(availableCards.Where(c => c.IsSelected));
         CharacterService.UpdateCharacter(character);
     }
 
