@@ -1,4 +1,4 @@
-namespace GloomhavenAbilityManager.Logic.Data
+﻿namespace GloomhavenAbilityManager.Logic.Contracts.Data
 {
     public class CharacterClass
     {

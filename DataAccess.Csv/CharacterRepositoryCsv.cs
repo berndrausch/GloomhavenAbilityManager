@@ -4,8 +4,8 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using CsvHelper;
-using GloomhavenAbilityManager.Logic.Contracts;
-using GloomhavenAbilityManager.Logic.Data;
+using GloomhavenAbilityManager.DataAccess.Contracts.Data;
+using GloomhavenAbilityManager.DataAccess.Contracts.Interfaces;
 
 namespace GloomhavenAbilityManager.DataAccess.Csv
 {
@@ -17,13 +17,13 @@ namespace GloomhavenAbilityManager.DataAccess.Csv
             _cardRepository = cardRepository;
         }
 
-        public IEnumerable<Character> GetAll()
+        public IEnumerable<CharacterDataObject> GetAll()
         {
-            List<Character> characters = ReadCharacters();
+            List<CharacterDataObject> characters = ReadCharacters();
             List<CharacterAbilityCardRelation> relations = ReadRelations();
-            List<AbilityCard> cards = _cardRepository.GetAll().ToList();
+            List<AbilityCardDataObject> cards = _cardRepository.GetAll().ToList();
 
-            foreach(Character character in characters)
+            foreach(CharacterDataObject character in characters)
             {
                 character.AvailableCards = relations.Where(rel => rel.CharacterId == character.Id).Select(rel => cards.FirstOrDefault( card => card.Id == rel.AbilityCardId));
                 character.SelectedCards = relations.Where(rel => rel.IsSelected && rel.CharacterId == character.Id).Select(rel => cards.FirstOrDefault( card => card.Id == rel.AbilityCardId));
@@ -32,13 +32,13 @@ namespace GloomhavenAbilityManager.DataAccess.Csv
             return characters;
         }
 
-        private List<Character> ReadCharacters()
+        private List<CharacterDataObject> ReadCharacters()
         {
             using (var reader = new StreamReader("DataAccess.Csv\\characters.csv"))
             {
                 using (var csv = new CsvReader(reader))
                 {
-                    return csv.GetRecords<Character>().ToList();
+                    return csv.GetRecords<CharacterDataObject>().ToList();
                 }
             }
         }
@@ -54,10 +54,10 @@ namespace GloomhavenAbilityManager.DataAccess.Csv
             }
         }
 
-        public void SaveAll(IEnumerable<Character> characters)
+        public void SaveAll(IEnumerable<CharacterDataObject> characters)
         {
             List<CharacterAbilityCardRelation> relations = new List<CharacterAbilityCardRelation>();
-            foreach(Character character in characters)
+            foreach(CharacterDataObject character in characters)
             {
                 foreach(int cardId in character.AvailableCards.Select(card => card.Id))
                 {

@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using GloomhavenAbilityManager.Logic.Data;
+using GloomhavenAbilityManager.Logic.Contracts.Data;
 
-namespace GloomhavenAbilityManager.Logic.Contracts
+namespace GloomhavenAbilityManager.Logic.Contracts.Interfaces
 {
     public interface IAbilityCardService
     {

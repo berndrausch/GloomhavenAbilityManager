@@ -1,14 +1,16 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using GloomhavenAbilityManager.Logic.Contracts;
-using GloomhavenAbilityManager.Logic.Data;
+using GloomhavenAbilityManager.DataAccess.Contracts.Data;
+using GloomhavenAbilityManager.DataAccess.Contracts.Interfaces;
+using GloomhavenAbilityManager.Logic.Contracts.Data;
+using GloomhavenAbilityManager.Logic.Contracts.Interfaces;
+using GloomhavenAbilityManager.Logic.Converters;
 
-namespace GloomhavenAbilityManager.Logic.Services
+namespace GloomhavenAbilityManager.Logic
 {
     public class CharacterService : ICharacterService
     {
-
         private readonly ICharacterRepository _characterRepository;
         private readonly IAbilityCardService _cardService;
         
@@ -27,15 +29,13 @@ namespace GloomhavenAbilityManager.Logic.Services
         {
             var allCharacters = _characterRepository.GetAll().ToList();
             allCharacters.RemoveAll(c => c.Id == character.Id);
-            allCharacters.Add(character);
+            allCharacters.Add(CharacterConverter.ToDataObject(character));
             _characterRepository.SaveAll(allCharacters);
         }
 
         public IEnumerable<Character> GetCharacters()
         {
-            var allcharacters = _characterRepository.GetAll();
-            
-            return allcharacters;
+            return _characterRepository.GetAll().Select(CharacterConverter.FromDataObject);
         }
     }
 }

@@ -2,7 +2,9 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Logic\GloomhavenAbilityManager.Logic.csproj" />
+    <ProjectReference Include="..\Logic.Contracts\GloomhavenAbilityManager.Logic.Contracts.csproj" />
     <ProjectReference Include="..\DataAccess.Csv\GloomhavenAbilityManager.DataAccess.Csv.csproj" />
+    <ProjectReference Include="..\DataAccess.Contracts\GloomhavenAbilityManager.DataAccess.Contracts.csproj" />
   </ItemGroup>
 
   <PropertyGroup>

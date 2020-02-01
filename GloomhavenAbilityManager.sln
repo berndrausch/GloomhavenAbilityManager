@@ -1,11 +1,17 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29613.14
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.902
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GloomhavenAbilityManager.Blazor", "Blazor\GloomhavenAbilityManager.Blazor.csproj", "{7E7C1C19-B23C-4CC7-8538-93620067060C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blazor", "Blazor\GloomhavenAbilityManager.Blazor.csproj", "{7E7C1C19-B23C-4CC7-8538-93620067060C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GloomhavenAbilityManager.DataAccess.Csv", "DataAccess.Csv\GloomhavenAbilityManager.DataAccess.Csv.csproj", "{63FC3EE9-EBDD-4D91-B7A1-93F98678EB24}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess.Csv", "DataAccess.Csv\GloomhavenAbilityManager.DataAccess.Csv.csproj", "{63FC3EE9-EBDD-4D91-B7A1-93F98678EB24}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess.Contracts", "DataAccess.Contracts\GloomhavenAbilityManager.DataAccess.Contracts.csproj", "{49E02F04-6FC1-4B7D-8051-FCADEBA1000E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Logic", "Logic\GloomhavenAbilityManager.Logic.csproj", "{F9047913-DE35-484D-AA55-B6B32921E484}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Logic.Contracts", "Logic.Contracts\GloomhavenAbilityManager.Logic.Contracts.csproj", "{FFFA3203-A7EB-4B5A-B9D0-FDD18370A049}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +27,18 @@ Global
 		{63FC3EE9-EBDD-4D91-B7A1-93F98678EB24}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{63FC3EE9-EBDD-4D91-B7A1-93F98678EB24}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{63FC3EE9-EBDD-4D91-B7A1-93F98678EB24}.Release|Any CPU.Build.0 = Release|Any CPU
+		{49E02F04-6FC1-4B7D-8051-FCADEBA1000E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{49E02F04-6FC1-4B7D-8051-FCADEBA1000E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{49E02F04-6FC1-4B7D-8051-FCADEBA1000E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{49E02F04-6FC1-4B7D-8051-FCADEBA1000E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F9047913-DE35-484D-AA55-B6B32921E484}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9047913-DE35-484D-AA55-B6B32921E484}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9047913-DE35-484D-AA55-B6B32921E484}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9047913-DE35-484D-AA55-B6B32921E484}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FFFA3203-A7EB-4B5A-B9D0-FDD18370A049}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FFFA3203-A7EB-4B5A-B9D0-FDD18370A049}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FFFA3203-A7EB-4B5A-B9D0-FDD18370A049}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FFFA3203-A7EB-4B5A-B9D0-FDD18370A049}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

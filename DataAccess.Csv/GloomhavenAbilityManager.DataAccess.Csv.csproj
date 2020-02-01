@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Logic\GloomhavenAbilityManager.Logic.csproj" />
+    <ProjectReference Include="..\DataAccess.Contracts\GloomhavenAbilityManager.DataAccess.Contracts.csproj" />
   </ItemGroup>
 
   <ItemGroup>

@@ -1,10 +1,13 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using GloomhavenAbilityManager.Logic.Contracts;
-using GloomhavenAbilityManager.Logic.Data;
+using GloomhavenAbilityManager.DataAccess.Contracts.Data;
+using GloomhavenAbilityManager.DataAccess.Contracts.Interfaces;
+using GloomhavenAbilityManager.Logic.Contracts.Data;
+using GloomhavenAbilityManager.Logic.Contracts.Interfaces;
+using GloomhavenAbilityManager.Logic.Converters;
 
-namespace GloomhavenAbilityManager.Logic.Services
+namespace GloomhavenAbilityManager.Logic
 {
     public class CharacterClassService : ICharacterClassService
     {
@@ -19,7 +22,8 @@ namespace GloomhavenAbilityManager.Logic.Services
 
         public CharacterClass GetClass(int id)
         {
-            return _classRepository.GetAll().FirstOrDefault(c => c.Id == id) ?? CharacterClass.Default;
+            CharacterClassDataObject dataObject = _classRepository.GetAll().FirstOrDefault(c => c.Id == id);
+            return dataObject == null ? CharacterClass.Default : CharacterClassConverter.FromDataObject(dataObject);
         }
 
         public IEnumerable<CharacterClass> GetClasses()

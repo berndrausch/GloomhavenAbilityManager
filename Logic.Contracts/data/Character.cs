@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace GloomhavenAbilityManager.Logic.Data
+namespace GloomhavenAbilityManager.Logic.Contracts.Data
 {
     public class Character
     {
