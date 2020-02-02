@@ -1,9 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using GloomhavenAbilityManager.DataAccess.Contracts.Data;
 using GloomhavenAbilityManager.DataAccess.Contracts.Interfaces;
 using GloomhavenAbilityManager.Logic.Contracts.Data;
+using GloomhavenAbilityManager.Logic.Contracts.Exceptions;
 using GloomhavenAbilityManager.Logic.Contracts.Interfaces;
 using GloomhavenAbilityManager.Logic.Converters;
 
@@ -13,7 +15,7 @@ namespace GloomhavenAbilityManager.Logic
     {
         private readonly ICharacterRepository _characterRepository;
         private readonly IAbilityCardService _cardService;
-        
+
         public CharacterService(ICharacterRepository characterRepository, IAbilityCardService cardService)
         {
             _characterRepository = characterRepository;
@@ -22,7 +24,16 @@ namespace GloomhavenAbilityManager.Logic
 
         public Character GetCharacter(int id)
         {
-            return GetCharacters().FirstOrDefault(c => c.Id == id) ?? Character.Default;
+            IEnumerable<Character> allCharacters = GetCharacters();
+
+            try
+            {
+                return allCharacters.First(c => c.Id == id);
+            }
+            catch (Exception ex)
+            {
+                throw new LogicException($"Unable to find characters with id {id} in all {allCharacters.Count()} characters", ex);
+            }
         }
 
         public void UpdateCharacter(Character character)
@@ -35,7 +46,18 @@ namespace GloomhavenAbilityManager.Logic
 
         public IEnumerable<Character> GetCharacters()
         {
-            return _characterRepository.GetAll().Select(CharacterConverter.FromDataObject);
+            IEnumerable<CharacterDataObject> allCharacterDataObjects;
+
+            try
+            {
+                allCharacterDataObjects = _characterRepository.GetAll();
+            }
+            catch (Exception ex)
+            {
+                throw new LogicException($"Unable to get character data from repository", ex);
+            }
+
+            return allCharacterDataObjects.Select(CharacterConverter.FromDataObject);
         }
     }
 }

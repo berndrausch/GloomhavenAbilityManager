@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using CsvHelper;
 using GloomhavenAbilityManager.DataAccess.Contracts.Data;
+using GloomhavenAbilityManager.DataAccess.Contracts.Exceptions;
 using GloomhavenAbilityManager.DataAccess.Contracts.Interfaces;
 
 namespace GloomhavenAbilityManager.DataAccess.Csv
@@ -23,10 +24,10 @@ namespace GloomhavenAbilityManager.DataAccess.Csv
             List<CharacterAbilityCardRelation> relations = ReadRelations();
             List<AbilityCardDataObject> cards = _cardRepository.GetAll().ToList();
 
-            foreach(CharacterDataObject character in characters)
+            foreach (CharacterDataObject character in characters)
             {
-                character.AvailableCards = relations.Where(rel => rel.CharacterId == character.Id).Select(rel => cards.FirstOrDefault( card => card.Id == rel.AbilityCardId));
-                character.SelectedCards = relations.Where(rel => rel.IsSelected && rel.CharacterId == character.Id).Select(rel => cards.FirstOrDefault( card => card.Id == rel.AbilityCardId));
+                character.AvailableCards = relations.Where(rel => rel.CharacterId == character.Id).Select(rel => cards.FirstOrDefault(card => card.Id == rel.AbilityCardId));
+                character.SelectedCards = relations.Where(rel => rel.IsSelected && rel.CharacterId == character.Id).Select(rel => cards.FirstOrDefault(card => card.Id == rel.AbilityCardId));
             }
 
             return characters;
@@ -34,32 +35,46 @@ namespace GloomhavenAbilityManager.DataAccess.Csv
 
         private List<CharacterDataObject> ReadCharacters()
         {
-            using (var reader = new StreamReader(FileNames.Characters))
+            try
             {
-                using (var csv = new CsvReader(reader))
+                using (var reader = new StreamReader(FileNames.Characters))
                 {
-                    return csv.GetRecords<CharacterDataObject>().ToList();
+                    using (var csv = new CsvReader(reader))
+                    {
+                        return csv.GetRecords<CharacterDataObject>().ToList();
+                    }
                 }
+            }
+            catch (Exception ex)
+            {
+                throw new DataAccessException($"Unable to read characters from {FileNames.Characters}", ex);
             }
         }
 
         private List<CharacterAbilityCardRelation> ReadRelations()
         {
-             using (var reader = new StreamReader(FileNames.CharacterCards))
+            try
             {
-                using (var csv = new CsvReader(reader))
-                {    
-                   return csv.GetRecords<CharacterAbilityCardRelation>().ToList();
+                using (var reader = new StreamReader(FileNames.CharacterCards))
+                {
+                    using (var csv = new CsvReader(reader))
+                    {
+                        return csv.GetRecords<CharacterAbilityCardRelation>().ToList();
+                    }
                 }
+            }
+            catch (Exception ex)
+            {
+                throw new DataAccessException($"Unable to read character cards from {FileNames.CharacterCards}", ex);
             }
         }
 
         public void SaveAll(IEnumerable<CharacterDataObject> characters)
         {
             List<CharacterAbilityCardRelation> relations = new List<CharacterAbilityCardRelation>();
-            foreach(CharacterDataObject character in characters)
+            foreach (CharacterDataObject character in characters)
             {
-                foreach(int cardId in character.AvailableCards.Select(card => card.Id))
+                foreach (int cardId in character.AvailableCards.Select(card => card.Id))
                 {
                     var rel = new CharacterAbilityCardRelation()
                     {
@@ -76,17 +91,16 @@ namespace GloomhavenAbilityManager.DataAccess.Csv
             using (var writer = new StreamWriter(FileNames.CharacterCards))
             {
                 using (var csv = new CsvWriter(writer))
-                {    
-                   csv.WriteRecords(relations);
+                {
+                    csv.WriteRecords(relations);
                 }
             }
-
 
             using (var writer = new StreamWriter(FileNames.Characters))
             {
                 using (var csv = new CsvWriter(writer))
-                {    
-                   csv.WriteRecords(characters);
+                {
+                    csv.WriteRecords(characters);
                 }
             }
         }

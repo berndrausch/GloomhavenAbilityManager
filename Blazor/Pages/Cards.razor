@@ -5,7 +5,7 @@
 @inject IAbilityCardService CardService
 @inject ICharacterClassService ClassService
 
-<h1>Ability cards (@characterClass.Name)</h1>
+<h1>Ability cards</h1>
 
 @if (cards == null)
 {
@@ -52,6 +52,6 @@ else
         }
 
         cards = CardService.GetCharacterClassCards(classId);
-        characterClass = ClassService.GetClass(classId);
+        //characterClass = ClassService.GetClass(classId);
     }
 }
