@@ -4,8 +4,6 @@ namespace GloomhavenAbilityManager.Logic.Contracts.Data
 {
     public class Character
     {
-        public static readonly Character Default = new Character {Id = -1, Name = "Unknown", ClassId = -1};
-
         public int Id { get; set; }
         public string Name { get; set; }
         public int ClassId { get; set; }
