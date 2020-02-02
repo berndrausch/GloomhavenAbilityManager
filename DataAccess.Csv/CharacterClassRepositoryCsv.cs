@@ -13,7 +13,7 @@ namespace GloomhavenAbilityManager.DataAccess.Csv
     {
        public IEnumerable<CharacterClassDataObject> GetAll()
         {
-            using (var reader = new StreamReader("DataAccess.Csv\\classes.csv"))
+            using (var reader = new StreamReader(FileNames.Classes))
             {
                 using (var csv = new CsvReader(reader))
                 {    

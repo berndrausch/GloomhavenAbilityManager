@@ -34,7 +34,7 @@ namespace GloomhavenAbilityManager.DataAccess.Csv
 
         private List<CharacterDataObject> ReadCharacters()
         {
-            using (var reader = new StreamReader("DataAccess.Csv\\characters.csv"))
+            using (var reader = new StreamReader(FileNames.Characters))
             {
                 using (var csv = new CsvReader(reader))
                 {
@@ -45,7 +45,7 @@ namespace GloomhavenAbilityManager.DataAccess.Csv
 
         private List<CharacterAbilityCardRelation> ReadRelations()
         {
-             using (var reader = new StreamReader("DataAccess.Csv\\charcards.csv"))
+             using (var reader = new StreamReader(FileNames.CharacterCards))
             {
                 using (var csv = new CsvReader(reader))
                 {    
@@ -73,7 +73,7 @@ namespace GloomhavenAbilityManager.DataAccess.Csv
                 character.SelectedCards = null;
             }
 
-            using (var writer = new StreamWriter("DataAccess.Csv\\charcards.csv"))
+            using (var writer = new StreamWriter(FileNames.CharacterCards))
             {
                 using (var csv = new CsvWriter(writer))
                 {    
@@ -82,7 +82,7 @@ namespace GloomhavenAbilityManager.DataAccess.Csv
             }
 
 
-            using (var writer = new StreamWriter("DataAccess.Csv\\characters.csv"))
+            using (var writer = new StreamWriter(FileNames.Characters))
             {
                 using (var csv = new CsvWriter(writer))
                 {    
