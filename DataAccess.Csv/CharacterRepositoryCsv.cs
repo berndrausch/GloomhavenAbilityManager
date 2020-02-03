@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.IO.Abstractions;
 using System.Linq;
 using System.Threading.Tasks;
 using CsvHelper;
@@ -35,37 +36,31 @@ namespace GloomhavenAbilityManager.DataAccess.Csv
 
         private List<CharacterDataObject> ReadCharacters()
         {
+            string fileName = FileNames.Characters;
+
             try
             {
-                using (var reader = new StreamReader(FileNames.Characters))
-                {
-                    using (var csv = new CsvReader(reader))
-                    {
-                        return csv.GetRecords<CharacterDataObject>().ToList();
-                    }
-                }
+                var csvFileReader = new CsvFileReader<CharacterDataObject>(new FileSystem(), fileName);
+                return csvFileReader.GetAll();
             }
             catch (Exception ex)
             {
-                throw new DataAccessException($"Unable to read characters from {FileNames.Characters}", ex);
+                throw new DataAccessException($"Unable to read characters from {fileName}", ex);
             }
         }
 
         private List<CharacterAbilityCardRelation> ReadRelations()
         {
+            string fileName = FileNames.CharacterCards;
+
             try
             {
-                using (var reader = new StreamReader(FileNames.CharacterCards))
-                {
-                    using (var csv = new CsvReader(reader))
-                    {
-                        return csv.GetRecords<CharacterAbilityCardRelation>().ToList();
-                    }
-                }
+                var csvFileReader = new CsvFileReader<CharacterAbilityCardRelation>(new FileSystem(), fileName);
+                return csvFileReader.GetAll();
             }
             catch (Exception ex)
             {
-                throw new DataAccessException($"Unable to read character cards from {FileNames.CharacterCards}", ex);
+                throw new DataAccessException($"Unable to read character cards from {fileName}", ex);
             }
         }
 

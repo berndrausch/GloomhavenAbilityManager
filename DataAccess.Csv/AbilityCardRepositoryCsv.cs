@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.IO.Abstractions;
 using System.Linq;
 using System.Threading.Tasks;
 using CsvHelper;
@@ -14,20 +15,16 @@ namespace GloomhavenAbilityManager.DataAccess.Csv
     {
         public IEnumerable<AbilityCardDataObject> GetAll()
         {
+            string fileName = FileNames.Cards;
+
             try
             {
-                using (var reader = new StreamReader(FileNames.Cards))
-                {
-                    using (var csv = new CsvReader(reader))
-                    {
-                        var records = csv.GetRecords<AbilityCardDataObject>().ToList();
-                        return records;
-                    }
-                }
+                var csvFileReader = new CsvFileReader<AbilityCardDataObject>(new FileSystem(), fileName);
+                return csvFileReader.GetAll();
             }
             catch (Exception ex)
             {
-                throw new DataAccessException($"Unable to read cards from {FileNames.Cards}", ex);
+                throw new DataAccessException($"Unable to read cards from {fileName}", ex);
             }
         }
     }
