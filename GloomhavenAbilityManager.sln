@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Logic", "Logic\GloomhavenAb
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Logic.Contracts", "Logic.Contracts\GloomhavenAbilityManager.Logic.Contracts.csproj", "{FFFA3203-A7EB-4B5A-B9D0-FDD18370A049}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GloomhavenAbilityManager.DataAccess.Csv.Tests", "DataAccess.Csv.Tests\GloomhavenAbilityManager.DataAccess.Csv.Tests.csproj", "{A9FC2C81-6E66-4762-A430-E603CA9F27AD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{FFFA3203-A7EB-4B5A-B9D0-FDD18370A049}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FFFA3203-A7EB-4B5A-B9D0-FDD18370A049}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FFFA3203-A7EB-4B5A-B9D0-FDD18370A049}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A9FC2C81-6E66-4762-A430-E603CA9F27AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9FC2C81-6E66-4762-A430-E603CA9F27AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9FC2C81-6E66-4762-A430-E603CA9F27AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9FC2C81-6E66-4762-A430-E603CA9F27AD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
