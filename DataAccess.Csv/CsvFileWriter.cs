@@ -22,6 +22,11 @@ namespace GloomhavenAbilityManager.DataAccess.Csv
 
         internal void SaveAll(IEnumerable<T> records)
         {
+            if (_fileSystem.File.Exists(_fileName))
+            {
+                _fileSystem.File.Delete(_fileName);
+            }
+
             using (var writer = new StreamWriter(_fileSystem.File.OpenWrite(_fileName)))
             {
                 using (var csv = new CsvWriter(writer))
