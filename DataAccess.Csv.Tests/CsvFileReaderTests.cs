@@ -25,7 +25,7 @@ namespace GloomhavenAbilityManager.DataAccess.Csv.Tests
         }
 
         [Fact]
-        public void GetAll_Should_ReturnEmpyCollection_WhenOnlyHeadersPresent()
+        public void GetAll_Should_ReturnEmpyCollection_When_OnlyHeadersPresent()
         {
             AddFileWithContent(_fileSystem, csvFileName, new[] {csvHeader});
             Assert.Empty(_sut.GetAll());
