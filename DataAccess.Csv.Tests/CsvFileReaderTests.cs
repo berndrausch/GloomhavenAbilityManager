@@ -28,7 +28,7 @@ namespace GloomhavenAbilityManager.DataAccess.Csv.Tests
         public void GetAll_Should_ReturnEmpyCollection_WhenOnlyHeadersPresent()
         {
             AddFileWithContent(_fileSystem, csvFileName, new[] {csvHeader});
-            Assert.Equal(0, _sut.GetAll().Count);
+            Assert.Empty(_sut.GetAll());
         }
 
         [Fact]
@@ -38,7 +38,7 @@ namespace GloomhavenAbilityManager.DataAccess.Csv.Tests
             
             var actualResults = _sut.GetAll();
 
-            Assert.Equal(1, actualResults.Count);
+            Assert.Single(actualResults);
 
             var actualFirstEntry = actualResults.First();
             
