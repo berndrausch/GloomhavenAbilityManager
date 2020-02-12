@@ -66,6 +66,18 @@ namespace GloomhavenAbilityManager.DataAccess.Csv
 
         public void SaveAll(IEnumerable<CharacterDataObject> characters)
         {
+            string fileName = FileNames.Characters;
+
+            try
+            {
+                var csvFileWriter = new CsvFileWriter<CharacterDataObject>(new FileSystem(), fileName);
+                csvFileWriter.SaveAll(characters);
+            }
+            catch (Exception ex)
+            {
+                throw new DataAccessException($"Unable to write character cards from {fileName}", ex);
+            }
+
             List<CharacterAbilityCardRelation> relations = new List<CharacterAbilityCardRelation>();
             foreach (CharacterDataObject character in characters)
             {
@@ -83,7 +95,7 @@ namespace GloomhavenAbilityManager.DataAccess.Csv
                 character.SelectedCards = null;
             }
 
-            string fileName = FileNames.CharacterCards;
+            fileName = FileNames.CharacterCards;
 
             try
             {

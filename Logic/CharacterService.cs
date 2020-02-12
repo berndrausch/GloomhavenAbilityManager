@@ -44,6 +44,14 @@ namespace GloomhavenAbilityManager.Logic
             _characterRepository.SaveAll(allCharacters);
         }
 
+        public void AddCharacter(Character character)
+        {
+            var allCharacters = _characterRepository.GetAll().ToList();
+            character.Id = allCharacters.Select(c => c.Id).Max() + 1;
+            allCharacters.Add(CharacterConverter.ToDataObject(character));
+            _characterRepository.SaveAll(allCharacters);
+        }
+
         public IEnumerable<Character> GetCharacters()
         {
             IEnumerable<CharacterDataObject> allCharacterDataObjects;

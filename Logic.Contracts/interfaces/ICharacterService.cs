@@ -8,6 +8,9 @@ namespace GloomhavenAbilityManager.Logic.Contracts.Interfaces
     {
         Character GetCharacter(int id);
         void UpdateCharacter(Character c);
+
+        void AddCharacter(Character c);
+        
         IEnumerable<Character> GetCharacters();
     }
 }

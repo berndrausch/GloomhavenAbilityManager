@@ -1,0 +1,67 @@
+@page "/chars/"
+
+@using GloomhavenAbilityManager.Logic.Contracts.Data
+@using GloomhavenAbilityManager.Logic.Contracts.Interfaces
+@inject ICharacterService CharacterService
+@inject ICharacterClassService ClassService
+
+<h1>Characters</h1>
+
+@if (characters == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Class</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var character in characters)
+            {
+            <tr>
+                <td><a href=@($"char\\{character.Id}")>@character.Name</a></td>
+                <td><a href=@($"class\\{character.ClassId}")>@ClassService.GetClass(character.ClassId).Name</a></td>
+            </tr>
+            }
+        </tbody>
+
+    </table>
+
+    <EditForm Model="@newCharacter" OnValidSubmit="OnNewCharacter">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+
+        <InputText id="name" @bind-Value="newCharacter.Name" />
+
+        <select  @bind="newCharacter.ClassId" class="form-control">
+        @foreach (var cls in ClassService.GetClasses())
+        {
+            <option value="@cls.Id">@cls.Name</option>
+        }
+     </select >
+
+        <button type="submit">Submit</button>
+</EditForm>
+}
+
+@code {
+    private IEnumerable<Character> characters;
+
+    private Character newCharacter = new Character();
+
+    protected override void OnInitialized()
+    {
+        characters = CharacterService.GetCharacters();
+    }
+
+    private void OnNewCharacter()
+    {
+        CharacterService.AddCharacter(newCharacter);
+        newCharacter = new Character();
+    }
+}
