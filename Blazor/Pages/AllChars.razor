@@ -18,6 +18,7 @@ else
             <tr>
                 <th>Name</th>
                 <th>Class</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -28,25 +29,20 @@ else
                 <td><a href=@($"class\\{character.ClassId}")>@ClassService.GetClass(character.ClassId).Name</a></td>
             </tr>
             }
+                <tr>
+                    <td><input id="name" @bind="newCharacter.Name" /></td>
+                    <td><select  @bind="newCharacter.ClassId" class="form-control">
+                        @foreach (var cls in ClassService.GetClasses())
+                        {
+                            <option value="@cls.Id">@cls.Name</option>
+                        }
+                    </select></td>
+                    <td><button @onclick="OnNewCharacter">Create</button></td>
+                </tr>
+         
         </tbody>
 
     </table>
-
-    <EditForm Model="@newCharacter" OnValidSubmit="OnNewCharacter">
-        <DataAnnotationsValidator />
-        <ValidationSummary />
-
-        <InputText id="name" @bind-Value="newCharacter.Name" />
-
-        <select  @bind="newCharacter.ClassId" class="form-control">
-        @foreach (var cls in ClassService.GetClasses())
-        {
-            <option value="@cls.Id">@cls.Name</option>
-        }
-     </select >
-
-        <button type="submit">Submit</button>
-</EditForm>
 }
 
 @code {
@@ -59,8 +55,10 @@ else
         characters = CharacterService.GetCharacters();
     }
 
+
     private void OnNewCharacter()
     {
+        Console.WriteLine(nameof(OnNewCharacter));
         CharacterService.AddCharacter(newCharacter);
         newCharacter = new Character();
     }
