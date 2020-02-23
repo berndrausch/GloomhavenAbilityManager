@@ -14,6 +14,9 @@ else
 {
     <h1>@character.Name (@characterClass.Name)</h1>
     <p>Available Cards: @characterClass.NumberOfCards</p>
+    <p>Level: (@character.Level)</p>
+
+    <p><a href=@($"charedit\\{character.Id}")>Edit</a></p>
 
     <h2>All cards</h2>
     

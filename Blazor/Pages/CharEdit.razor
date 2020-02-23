@@ -1,0 +1,96 @@
+@page "/charedit/{CharacterIdParameter}"
+
+@using GloomhavenAbilityManager.Logic.Contracts.Data
+@using GloomhavenAbilityManager.Logic.Contracts.Interfaces
+@inject IAbilityCardService CardService
+@inject ICharacterClassService ClassService
+@inject ICharacterService CharacterService
+
+@if (character == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <h1>@character.Name (@characterClass.Name)</h1>
+    <p>Available Cards: @characterClass.NumberOfCards</p>
+    <p>Level: (@character.Level)</p>
+
+ <td><select  @bind="@character.Level" class="form-control">
+                        @for(var level =1;level<=10;level++)
+                        {
+                            <option value="@level">@level</option>
+                        }
+                    </select></td>
+
+    <button @onclick="Save">Save character</button>
+    
+
+    <h2>All cards</h2>
+    
+    @for (int row = 0; row <= availableCards.Count / cardsPerRow; row++)
+    {
+        <tr>
+  
+        @for (int col = 0; col < cardsPerRow; col++)
+        {
+            @if (row * cardsPerRow + col < availableCards.Count)
+            {
+                var card = availableCards[row * cardsPerRow + col];
+                <td>
+                    @availableCards[row * cardsPerRow + col].Name 
+                    <br><img src="@card.ImagePath" height="320" width="240">
+                </td>
+            }
+        }
+        </tr>  
+    } 
+}
+
+@code {
+
+    private string characterIdParameter = "0";
+
+    [Parameter]
+    public string CharacterIdParameter 
+    { 
+        get 
+        {
+            return characterIdParameter;
+        } 
+
+        set
+        {
+            characterIdParameter = value;
+            OnCharacterIdParameterChanged();
+        } 
+    } 
+
+    private int cardsPerRow = 6;
+
+    private Character character;
+    
+    private CharacterClass characterClass;
+
+    private List<AbilityCard> availableCards;
+
+    private void OnCharacterIdParameterChanged()
+    {
+        if (!int.TryParse(CharacterIdParameter, out int _id))
+        {
+            _id = 0;
+        }
+
+        character = CharacterService.GetCharacter(_id);
+        characterClass = ClassService.GetClass(character.ClassId);
+        var tempAvailableCards = new List<AbilityCard>(character.AvailableCards);
+        tempAvailableCards.ForEach( c => c.IsSelected = character.SelectedCards.Any( card => card.Id == c.Id));
+        availableCards = tempAvailableCards;
+    }
+
+    private void Save()
+    {
+        character.SelectedCards = new List<AbilityCard>(availableCards.Where(c => c.IsSelected));
+        CharacterService.UpdateCharacter(character);
+    }
+}
