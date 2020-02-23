@@ -1,30 +1,37 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using GloomhavenAbilityManager.DataAccess.Contracts.Data;
 using GloomhavenAbilityManager.Logic.Contracts.Data;
 
 namespace GloomhavenAbilityManager.Logic.Converters
 {
-    internal static class CharacterClassConverter
+    internal static class CharacterConverter
     {
-        internal static CharacterClass FromDataObject(CharacterClassDataObject dataObject)
+        internal static Character FromDataObject(CharacterDataObject dataObject)
         {
-            return new CharacterClass()
+            return new Character()
             {
                 Id = dataObject.Id,
                 Name = dataObject.Name,
-                NumberOfCards = dataObject.NumberOfCards,
+                Level = dataObject.Level,
+                ClassId = dataObject.ClassId,
+                AvailableCards = dataObject.AvailableCards.Select( AbilityCardConverter.FromDataObject),
+                SelectedCards = dataObject.SelectedCards.Select(AbilityCardConverter.FromDataObject),
             };
         }
 
-        internal static CharacterClassDataObject ToDataObject(CharacterClass obj)
+        internal static CharacterDataObject ToDataObject(Character obj)
         {
-            return new CharacterClassDataObject()
+            return new CharacterDataObject()
             {
                 Id = obj.Id,
                 Name = obj.Name,
-                NumberOfCards = obj.NumberOfCards,
+                Level = obj.Level,
+                ClassId = obj.ClassId,
+                AvailableCards = obj.AvailableCards.Select(AbilityCardConverter.ToDataObject),
+                SelectedCards = obj.SelectedCards.Select(AbilityCardConverter.ToDataObject),
             };
         }
     }
