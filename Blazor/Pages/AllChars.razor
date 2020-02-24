@@ -1,5 +1,6 @@
 @page "/chars/"
 
+@using System.Linq;
 @using GloomhavenAbilityManager.Logic.Contracts.Data
 @using GloomhavenAbilityManager.Logic.Contracts.Interfaces
 @inject ICharacterService CharacterService
@@ -52,7 +53,7 @@ else
 
     protected override void OnInitialized()
     {
-        characters = CharacterService.GetCharacters();
+        characters = CharacterService.GetCharacters().OrderBy(c => c.Name);
     }
 
 

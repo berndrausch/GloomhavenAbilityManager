@@ -37,7 +37,7 @@
 
     protected override void OnInitialized()
     {
-        characters = CharacterService.GetCharacters();
+        characters = CharacterService.GetCharacters().OrderBy(c => c.Name);
     }
 
     private void ToggleNavMenu()
