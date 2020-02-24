@@ -13,38 +13,50 @@
 else
 {
     <h1>@character.Name (@characterClass.Name)</h1>
-    <p>Available Cards: @characterClass.NumberOfCards</p>
-    <p>Level: (@character.Level)</p>
 
- <td><select  @bind="@character.Level" class="form-control">
-                        @for(var level =1;level<=10;level++)
-                        {
-                            <option value="@level">@level</option>
-                        }
-                    </select></td>
+    <table>
+        <tr><td>Cards:</td><td> @characterClass.NumberOfCards</td></tr>
+        <tr><td>Level:</td><td><select @bind="characterLevel" class="form-control">
+            @for (var level = 1; level <= 10; level++)
+            {
+                <option value="@level">@level</option>
+            }
+        </select></td></tr>
+        <tr>
+            <td><button @onclick="AddCardToPool">Add</button></td>
+            <td>
+                <select @bind="selectedAvailableCardId" class="form-control">
+                    @foreach (var card in availableCards)
+                    {
+                    <option value="@card.Id">@card.Name (Level @card.Level, Id @card.Id)</option>
+                    }
+                </select>
+            </td>
+        </tr>
+    </table>
 
     <button @onclick="Save">Save character</button>
-    
 
-    <h2>All cards</h2>
-    
-    @for (int row = 0; row <= availableCards.Count / cardsPerRow; row++)
+
+    <h2>Card Pool</h2>
+
+    @for (int row = 0; row <= poolCards.Count / cardsPerRow; row++)
     {
         <tr>
-  
-        @for (int col = 0; col < cardsPerRow; col++)
-        {
-            @if (row * cardsPerRow + col < availableCards.Count)
+
+            @for (int col = 0; col < cardsPerRow; col++)
             {
-                var card = availableCards[row * cardsPerRow + col];
-                <td>
-                    @availableCards[row * cardsPerRow + col].Name 
-                    <br><img src="@card.ImagePath" height="320" width="240">
-                </td>
+                @if (row * cardsPerRow + col < poolCards.Count)
+                {
+                    var card = poolCards[row * cardsPerRow + col];
+                    <td>
+                        @poolCards[row * cardsPerRow + col].Name
+                        <br><img src="@card.ImagePath" height="320" width="240">
+                    </td>
+                }
             }
-        }
-        </tr>  
-    } 
+        </tr>
+    }
 }
 
 @code {
@@ -52,27 +64,45 @@ else
     private string characterIdParameter = "0";
 
     [Parameter]
-    public string CharacterIdParameter 
-    { 
-        get 
+    public string CharacterIdParameter
+    {
+        get
         {
             return characterIdParameter;
-        } 
+        }
 
         set
         {
             characterIdParameter = value;
             OnCharacterIdParameterChanged();
-        } 
-    } 
+        }
+    }
 
     private int cardsPerRow = 6;
 
     private Character character;
-    
+
     private CharacterClass characterClass;
 
+    private List<AbilityCard> poolCards;
+
     private List<AbilityCard> availableCards;
+
+    private int characterLevel
+    {
+        get => character.Level;
+        set
+        {
+            if (character.Level != value)
+            {
+                character.Level = value;
+                OnCharacterLevelChanged();
+            }
+        }
+    }
+
+    private int selectedAvailableCardId;
+
 
     private void OnCharacterIdParameterChanged()
     {
@@ -83,14 +113,38 @@ else
 
         character = CharacterService.GetCharacter(_id);
         characterClass = ClassService.GetClass(character.ClassId);
-        var tempAvailableCards = new List<AbilityCard>(character.AvailableCards);
-        tempAvailableCards.ForEach( c => c.IsSelected = character.SelectedCards.Any( card => card.Id == c.Id));
-        availableCards = tempAvailableCards;
+
+        UpdatePoolCards();
+        UpdateAvailableCards();
+    }
+
+    private void UpdatePoolCards()
+    {
+        var tempCards = new List<AbilityCard>(character.PoolCards);
+        tempCards.ForEach(c => c.IsSelected = character.SelectedCards.Any(card => card.Id == c.Id));
+        poolCards = tempCards;
+    }
+
+    private void UpdateAvailableCards()
+    {
+        availableCards = CardService.GetAvailableCards(character).ToList();
+        selectedAvailableCardId = availableCards.First().Id;
+    }
+
+    private void OnCharacterLevelChanged() => UpdateAvailableCards();
+
+    private void AddCardToPool()
+    {
+        var tempCards = new List<AbilityCard>(character.PoolCards);
+        tempCards.Add(CardService.GetCard(selectedAvailableCardId));
+        character.PoolCards = tempCards;
+        UpdatePoolCards();
+        UpdateAvailableCards();
     }
 
     private void Save()
     {
-        character.SelectedCards = new List<AbilityCard>(availableCards.Where(c => c.IsSelected));
+        character.SelectedCards = new List<AbilityCard>(poolCards.Where(c => c.IsSelected));
         CharacterService.UpdateCharacter(character);
     }
 }

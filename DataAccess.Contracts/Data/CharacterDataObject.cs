@@ -13,12 +13,12 @@ namespace GloomhavenAbilityManager.DataAccess.Contracts.Data
        
         public int ClassId { get; set; }
 
-        public IEnumerable<AbilityCardDataObject> AvailableCards { get; set; }
+        public IEnumerable<AbilityCardDataObject> PoolCards { get; set; }
         public IEnumerable<AbilityCardDataObject> SelectedCards { get; set; }
 
         public CharacterDataObject()
         {
-            AvailableCards = new AbilityCardDataObject[0];
+            PoolCards = new AbilityCardDataObject[0];
             SelectedCards = new AbilityCardDataObject[0];        
         }
     }

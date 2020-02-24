@@ -61,5 +61,32 @@ namespace GloomhavenAbilityManager.Logic
 
             return allCardsObjects.Select(AbilityCardConverter.FromDataObject);
         }
+
+        public IEnumerable<AbilityCard> GetAvailableCards(Character character)
+        {
+            IEnumerable<AbilityCard> allClassCards = GetCharacterClassCards(character.ClassId);
+            return allClassCards.Where(card =>
+                IsCardAvailableForLevel(character.Level, card) && !IsCardInCharacterPool(character, card));
+        }
+
+        private bool IsCardInCharacterPool(Character character, AbilityCard card)
+        {
+            return character.PoolCards.Any(poolCard => poolCard.Id == card.Id);
+        }
+
+        private bool IsCardAvailableForLevel(int characterLevel, AbilityCard card)
+        {
+            if (card.Level.Equals("X", StringComparison.CurrentCultureIgnoreCase))
+            {
+                return true;
+            }
+
+            if (int.TryParse(card.Level, out int cardLevel))
+            {
+                return cardLevel <= characterLevel;
+            }
+
+            return false;
+        }
     }
 }

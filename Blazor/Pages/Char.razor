@@ -18,20 +18,20 @@ else
 
     <p><a href=@($"charedit\\{character.Id}")>Edit</a></p>
 
-    <h2>All cards</h2>
+    <h2>Pool cards</h2>
     
-    @for (int row = 0; row <= availableCards.Count / cardsPerRow; row++)
+    @for (int row = 0; row <= poolCards.Count / cardsPerRow; row++)
     {
         <tr>
   
         @for (int col = 0; col < cardsPerRow; col++)
         {
-            @if (row * cardsPerRow + col < availableCards.Count)
+            @if (row * cardsPerRow + col < poolCards.Count)
             {
-                var card = availableCards[row * cardsPerRow + col];
+                var card = poolCards[row * cardsPerRow + col];
                 <td>
                     <input type="checkbox" checked="@card.IsSelected" @onchange="eventArgs => { OnCardIsSelectedChanged(card, (bool) eventArgs.Value); }" /> 
-                    @availableCards[row * cardsPerRow + col].Name 
+                    @poolCards[row * cardsPerRow + col].Name 
                     <br><img src="@card.ImagePath" height="320" width="240">
                 </td>
             }
@@ -62,26 +62,26 @@ else
     private string characterIdParameter = "0";
 
     [Parameter]
-    public string CharacterIdParameter 
-    { 
-        get 
+    public string CharacterIdParameter
+    {
+        get
         {
             return characterIdParameter;
-        } 
+        }
 
         set
         {
             characterIdParameter = value;
             OnCharacterIdParameterChanged();
-        } 
-    } 
+        }
+    }
 
     private int cardsPerRow = 6;
 
     private Character character;
     private CharacterClass characterClass;
 
-    private List<AbilityCard> availableCards;
+    private List<AbilityCard> poolCards;
     private List<AbilityCard> selectedCards;
 
     private void OnCharacterIdParameterChanged()
@@ -93,15 +93,15 @@ else
 
         character = CharacterService.GetCharacter(_id);
         characterClass = ClassService.GetClass(character.ClassId);
-        var tempAvailableCards = new List<AbilityCard>(character.AvailableCards);
+        var tempAvailableCards = new List<AbilityCard>(character.PoolCards);
         tempAvailableCards.ForEach( c => c.IsSelected = character.SelectedCards.Any( card => card.Id == c.Id));
-        availableCards = tempAvailableCards;
+        poolCards = tempAvailableCards;
         UpdateSelecedCards();
     }
 
     private void SaveCards()
     {
-        character.SelectedCards = new List<AbilityCard>(availableCards.Where(c => c.IsSelected));
+        character.SelectedCards = new List<AbilityCard>(poolCards.Where(c => c.IsSelected));
         CharacterService.UpdateCharacter(character);
     }
 
@@ -111,14 +111,14 @@ else
         UpdateSelecedCards();
     }
 
-     private void OnCardIsSelectedChanged2(ChangeEventArgs e)
+    private void OnCardIsSelectedChanged2(ChangeEventArgs e)
     {
-      
+
         UpdateSelecedCards();
     }
 
     private void UpdateSelecedCards()
     {
-        selectedCards = availableCards.Where(c => c.IsSelected).ToList();
+        selectedCards = poolCards.Where(c => c.IsSelected).ToList();
     }
 }

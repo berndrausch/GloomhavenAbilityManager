@@ -17,7 +17,7 @@ namespace GloomhavenAbilityManager.Logic.Converters
                 Name = dataObject.Name,
                 Level = dataObject.Level,
                 ClassId = dataObject.ClassId,
-                AvailableCards = dataObject.AvailableCards.Select( AbilityCardConverter.FromDataObject),
+                PoolCards = dataObject.PoolCards.Select( AbilityCardConverter.FromDataObject),
                 SelectedCards = dataObject.SelectedCards.Select(AbilityCardConverter.FromDataObject),
             };
         }
@@ -30,7 +30,7 @@ namespace GloomhavenAbilityManager.Logic.Converters
                 Name = obj.Name,
                 Level = obj.Level,
                 ClassId = obj.ClassId,
-                AvailableCards = obj.AvailableCards.Select(AbilityCardConverter.ToDataObject),
+                PoolCards = obj.PoolCards.Select(AbilityCardConverter.ToDataObject),
                 SelectedCards = obj.SelectedCards.Select(AbilityCardConverter.ToDataObject),
             };
         }

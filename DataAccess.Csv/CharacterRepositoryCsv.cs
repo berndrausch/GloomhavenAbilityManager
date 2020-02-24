@@ -27,7 +27,7 @@ namespace GloomhavenAbilityManager.DataAccess.Csv
 
             foreach (CharacterDataObject character in characters)
             {
-                character.AvailableCards = relations.Where(rel => rel.CharacterId == character.Id).Select(rel => cards.FirstOrDefault(card => card.Id == rel.AbilityCardId));
+                character.PoolCards = relations.Where(rel => rel.CharacterId == character.Id).Select(rel => cards.FirstOrDefault(card => card.Id == rel.AbilityCardId));
                 character.SelectedCards = relations.Where(rel => rel.IsSelected && rel.CharacterId == character.Id).Select(rel => cards.FirstOrDefault(card => card.Id == rel.AbilityCardId));
             }
 
@@ -81,7 +81,7 @@ namespace GloomhavenAbilityManager.DataAccess.Csv
             List<CharacterAbilityCardRelation> relations = new List<CharacterAbilityCardRelation>();
             foreach (CharacterDataObject character in characters)
             {
-                foreach (int cardId in character.AvailableCards.Select(card => card.Id))
+                foreach (int cardId in character.PoolCards.Select(card => card.Id))
                 {
                     var rel = new CharacterAbilityCardRelation()
                     {
@@ -91,7 +91,7 @@ namespace GloomhavenAbilityManager.DataAccess.Csv
                     };
                     relations.Add(rel);
                 }
-                character.AvailableCards = null;
+                character.PoolCards = null;
                 character.SelectedCards = null;
             }
 

@@ -9,5 +9,7 @@ namespace GloomhavenAbilityManager.Logic.Contracts.Interfaces
         AbilityCard GetCard(int id);
 
         IEnumerable<AbilityCard> GetCharacterClassCards(int characterClassId);
+
+        IEnumerable<AbilityCard> GetAvailableCards(Character character);
     }
 }
