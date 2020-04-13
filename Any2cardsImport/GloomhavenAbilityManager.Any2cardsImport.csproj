@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+    <ItemGroup>
+    <ProjectReference Include="..\DataAccess.Contracts\GloomhavenAbilityManager.DataAccess.Contracts.csproj" />
+    <ProjectReference Include="..\DataAccess.Csv\GloomhavenAbilityManager.DataAccess.Csv.csproj" />
+    <PackageReference Include="System.IO.Abstractions" Version="8.0.5" />
+    <PackageReference Include="CsvHelper" Version="12.2.3" />
+  </ItemGroup>
+
+</Project>

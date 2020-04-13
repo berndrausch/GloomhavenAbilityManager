@@ -9,5 +9,10 @@
         public string Name { get; set; }
 
         public int NumberOfCards { get; set; }
+
+        public override string ToString()
+        {
+            return $"{GetType().Name} {Name} with id {Id}";
+        }
     }
 }

@@ -11,5 +11,10 @@
         public string Name { get; set; }
 
         public string ImagePath { get; set; }
+
+        public override string ToString()
+        {
+            return $"{GetType().Name} {Name} for class id {ClassId} level {Level}";
+        }
     }
 }

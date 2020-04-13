@@ -9,18 +9,18 @@ using GloomhavenAbilityManager.DataAccess.Contracts.Data;
 
 namespace GloomhavenAbilityManager.DataAccess.Csv
 {
-    internal class CsvFileReader<T>
+    public class CsvFileReader<T>
     {
         private readonly IFileSystem _fileSystem;
         private readonly string _fileName;
 
-        internal CsvFileReader(IFileSystem fileSystem, string fileName)
+        public CsvFileReader(IFileSystem fileSystem, string fileName)
         {
             _fileSystem = fileSystem;
             _fileName = fileName;
         }
 
-        internal List<T> GetAll()
+        public List<T> GetAll()
         {
             using (var reader = new StreamReader(_fileSystem.File.OpenRead(_fileName)))
             {
