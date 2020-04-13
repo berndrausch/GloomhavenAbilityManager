@@ -17,7 +17,6 @@ namespace GloomhavenAbilityManager.Logic.Converters
                 Level = dataObject.Level,
                 Name = dataObject.Name,
                 ImagePath = dataObject.ImagePath,
-                IsSelected = dataObject.IsSelected,
             };
         }
 
@@ -30,7 +29,6 @@ namespace GloomhavenAbilityManager.Logic.Converters
                 Level = obj.Level,
                 Name = obj.Name,
                 ImagePath = obj.ImagePath,
-                IsSelected = obj.IsSelected,
             };
         }
     }
