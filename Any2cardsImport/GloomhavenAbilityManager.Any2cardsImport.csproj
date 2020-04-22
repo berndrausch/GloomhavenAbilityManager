@@ -12,4 +12,19 @@
     <PackageReference Include="CsvHelper" Version="12.2.3" />
   </ItemGroup>
 
+    <ItemGroup>
+      <None Update="additionalcardinfo.csv">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </None>
+      <None Update="additionalcardinfo.spoiler.csv">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </None>
+      <None Update="additionalclassinfo.csv">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </None>
+      <None Update="additionalclassinfo.spoiler.csv">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </None>
+    </ItemGroup>
+
 </Project>

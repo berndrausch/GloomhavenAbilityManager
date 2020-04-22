@@ -7,11 +7,18 @@ namespace GloomhavenAbilityManager.Any2cardsImport
     {
         static void Main(string[] args)
         {
+            string characterAbilityCardsDir = @"..\..\..\..\..\gloomhaven\images\character-ability-cards";
+
+            if (args.Length > 0)
+            {
+                characterAbilityCardsDir = args[0];
+            }
+
             FileReader reader = new FileReader();
-            var files = reader.GetAllFiles(new DirectoryInfo(@"C:\Users\Bernd\Documents\Development\gloomhaven\images\character-ability-cards"));
+            var files = reader.GetAllFiles(new DirectoryInfo(characterAbilityCardsDir));
             
-            Importer importer = new Importer();
-            importer.Import(files);
+            DataGenerator dataGenerator = new DataGenerator();
+            dataGenerator.Generate(files, true);
             
             Console.WriteLine("Hello World!");
         }

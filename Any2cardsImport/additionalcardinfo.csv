@@ -1,4 +1,61 @@
-FileName;Id;Name;Level
-booming-proclamation.png;371;booming proclamation;7
-call-to-action.png;352;call to action;1
-captivating-performance.png;374;captivating performance;9
+Id;Level;Name;FileName
+12;X;;balanced-measure.png
+116;1;Pendelschlag;opposing-strike.png
+117;1;Zertrümmernder Griff;crushing-grasp.png
+118;1;Lawine;avalanche.png
+119;1;Grollender Vorstoß;rumbling-advance.png
+120;1;Riesiger Felsen;massive-boulder.png
+121;1;Ersatzmunition;backup-ammunition.png
+122;1;Steintunnel;rock-tunnel.png
+123;1;Instabiles Beben;unstable-upheaval.png
+124;1;Krater;crater.png
+125;1;Staubwirbel;dirt-tornado.png
+126;1;Erdklumpen;earthen-clod.png
+127;X;Umwerfender Schlag;heaving-swing.png
+128;X;Mächtiger Sturm;forceful-storm.png
+129;X;Erhebende Natur;natures-lift.png
+130;2;Explosive Faust;explosive-punch.png
+131;2;Bewusstes Wachstum;sentient-growth.png
+132;3;Wegbereiter;clear-the-way.png
+133;3;Stumpfe Gewalt;blunt-force.png
+134;4;Bergrutsch;rock-slide.png
+135;4;Kinetischer Angriff;kinetic-assault.png
+136;5;Versteinern;petrify.png
+137;5;Steinhagel;stone-pummel.png
+138;6;Fallgrube;dig-pit.png
+139;6;Kataklysmus;cataclysm.png
+140;7;Meteor;meteor.png
+141;7;Brutaler Schwung;brutal-momentum.png
+142;8;Steinernes Ende;rocky-end.png
+143;8;Schwerfälliger Schlag;lumbering-bash.png
+144;9;Blinde Zerstörung;blind-destruction.png
+145;9;Pulverisieren;pulverize.png
+477;1;Verwirrendes Brüllen;disorienting-roar.png
+478;1;Seelentausch;spirit-swap.png
+479;1;Giftiger Heiler;venomous-ally.png
+480;1;Unbarmherziger Helfer;relentless-ally.png
+481;1;Konzentrierte Wut;concentrated-rage.png
+482;1;Wundheilung;disappearing-wounds.png
+483;1;Flickenpelz;patch-fur.png
+484;1;Zerfleischen;maul.png
+485;1;Schwungvoller Hieb;forceful-swipe.png
+486;1;Sirrende Pfeile;howling-bolts.png
+487;X;Kreisender Helfer;soaring-ally.png
+488;X;Fokussierte Aggression;focused-aggression.png
+489;X;Geborgte Essenz;borrowed-essence.png
+490;2;Ermächtigungsschlag;energizing-strike.png
+491;2;Erdstachel;earthen-spikes.png
+492;3;Boshafter Helfer;vicious-ally.png
+493;3;Unaufhaltsame Bestie;unstoppable-beast.png
+494;4;Altes Schutzzeichen;ancient-ward.png
+495;4;Durchschlag;punch-through.png
+496;5;Tobsucht;rampage.png
+497;5;Steinsiegel;stone-sigil.png
+498;6;Ursegen;primal-blessing.png
+499;6;Blutdurst;blood-hunger.png
+500;7;Sturmsiegel;storm-sigil.png
+501;7;Meisterkraft;tyrannical-force
+502;8;Auskeilen;lash-out.png
+503;8;Naturheilmittel;natural-remedy.png
+504;9;Schlund des Todes;jaws-of-death.png
+505;9;Stammessiegel;tribal-sigil.png

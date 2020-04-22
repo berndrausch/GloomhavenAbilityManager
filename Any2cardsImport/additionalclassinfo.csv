@@ -1,3 +1,7 @@
-Abbreviation;Id;Name;NumberOfCards
-BT;1;Beast Tyrant;10
-SS;2;South Singer;9
+﻿Abbreviation;Id;Name;NumberOfCards
+BR;1;Brute;10
+CH;2;Cragheart;12
+MT;3;Mindthief;10
+SC;4;Scoundrel;9
+SW;5;Spellweaver;8
+TI;6;Tinkerer;12

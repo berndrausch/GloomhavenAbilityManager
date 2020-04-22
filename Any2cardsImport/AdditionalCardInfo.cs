@@ -9,5 +9,10 @@ namespace GloomhavenAbilityManager.Any2cardsImport
         public string Name{get;set;}
         
         public string Level{get;set;}
+
+        public override string ToString()
+        {
+            return $"{nameof(AdditionalCardInfo)} for {Name} ({Level}, {Id}";
+        }
     }
 }
