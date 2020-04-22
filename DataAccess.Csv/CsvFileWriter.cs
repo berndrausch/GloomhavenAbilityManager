@@ -9,18 +9,18 @@ using GloomhavenAbilityManager.DataAccess.Contracts.Data;
 
 namespace GloomhavenAbilityManager.DataAccess.Csv
 {
-    internal class CsvFileWriter<T>
+    public class CsvFileWriter<T>
     {
         private readonly IFileSystem _fileSystem;
         private readonly string _fileName;
 
-        internal CsvFileWriter(IFileSystem fileSystem, string fileName)
+        public CsvFileWriter(IFileSystem fileSystem, string fileName)
         {
             _fileSystem = fileSystem;
             _fileName = fileName;
         }
 
-        internal void SaveAll(IEnumerable<T> records)
+        public void SaveAll(IEnumerable<T> records)
         {
             if (_fileSystem.File.Exists(_fileName))
             {
