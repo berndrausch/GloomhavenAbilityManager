@@ -13,22 +13,45 @@ else
 {
     <p>@card.Name (@ClassService.GetClass(card.ClassId).Name @card.Level)</p>
     <img src="@card.ImagePath" height="600" width="400">
+    <p>
+        <a href=@($"card\\{card.Id-1}")>Previous</a>
+        <a href=@($"card\\{card.Id+1}")>Next</a>
+    </p>
 }
 
 @code {
-    
+
+    private string cardIdParameter = "0";
+
     [Parameter]
-    public string CardIdParameter {get; set; } = "0";
+    public string CardIdParameter
+    {
+        get
+        {
+            return cardIdParameter;
+        }
+
+        set
+        {
+            cardIdParameter = value;
+            OnCardIdParameterChanged();
+        }
+    }
 
     private AbilityCard card;
 
     protected override void OnInitialized()
     {
-        if ( ! int.TryParse(CardIdParameter, out int _id))
+        OnCardIdParameterChanged();
+    }
+
+    private void OnCardIdParameterChanged()
+    {
+        if (!int.TryParse(CardIdParameter, out int id))
         {
-            _id = 0;
+            id = 0;
         }
 
-        card = CardService.GetCard(_id);
+        card = CardService.GetCard(id);
     }
 }

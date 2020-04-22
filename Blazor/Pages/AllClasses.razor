@@ -1,0 +1,42 @@
+@page "/classes/"
+
+@using System.Linq;
+@using GloomhavenAbilityManager.Logic.Contracts.Data
+@using GloomhavenAbilityManager.Logic.Contracts.Interfaces
+@inject ICharacterClassService ClassService
+
+<h1>Characters</h1>
+
+@if (classes == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var cls in classes)
+            {
+            <tr>
+                <td><a href=@($"class\\{cls.Id}")>@cls.Name</a></td>
+            </tr>
+            }
+        </tbody>
+
+    </table>
+}
+
+@code {
+    private IEnumerable<CharacterClass> classes;
+
+    protected override void OnInitialized()
+    {
+        classes = ClassService.GetClasses().OrderBy(c => c.Id);
+    }
+}

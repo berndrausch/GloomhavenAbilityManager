@@ -1,6 +1,7 @@
 ﻿@using GloomhavenAbilityManager.Logic.Contracts.Interfaces
 @using GloomhavenAbilityManager.Logic.Contracts.Data
 @inject ICharacterService CharacterService
+@inject ICharacterClassService ClassService
 
 <div class="top-row pl-4 navbar navbar-dark">
     <a class="navbar-brand" href="">Gloomhaven</a>
@@ -25,6 +26,15 @@
                 </NavLink>
             </li>
         }
+
+        @foreach (var cls in classes)
+        {
+            <li class="nav-item px-3">
+                <NavLink class="nav-link" href=@($"class\\{cls.Id}")>
+                    <span class="oi oi-list-rich" aria-hidden="true"></span> @cls.Name
+                </NavLink>
+            </li>
+        }
     </ul>
 </div>
 
@@ -32,12 +42,14 @@
     private bool collapseNavMenu = true;
 
     private IEnumerable<Character> characters;
+    private IEnumerable<CharacterClass> classes;
 
     private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
 
     protected override void OnInitialized()
     {
         characters = CharacterService.GetCharacters().OrderBy(c => c.Name);
+        classes = ClassService.GetClasses().OrderBy(c => c.Id);
     }
 
     private void ToggleNavMenu()

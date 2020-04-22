@@ -86,12 +86,12 @@ else
 
     private void OnCharacterIdParameterChanged()
     {
-        if (!int.TryParse(CharacterIdParameter, out int _id))
+        if (!int.TryParse(CharacterIdParameter, out int id))
         {
-            _id = 0;
+            id = 0;
         }
 
-        character = CharacterService.GetCharacter(_id);
+        character = CharacterService.GetCharacter(id);
         characterClass = ClassService.GetClass(character.ClassId);
         var tempAvailableCards = new List<AbilityCard>(character.PoolCards);
         tempAvailableCards.ForEach( c => c.IsSelected = character.SelectedCards.Any( card => card.Id == c.Id));
