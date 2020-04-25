@@ -19,42 +19,45 @@ else
     <p><a href=@($"charedit\\{character.Id}")>Edit</a></p>
 
     <h2>Pool cards</h2>
-    
+
     @for (int row = 0; row <= poolCards.Count / cardsPerRow; row++)
     {
         <tr>
-  
-        @for (int col = 0; col < cardsPerRow; col++)
-        {
-            @if (row * cardsPerRow + col < poolCards.Count)
+
+            @for (int col = 0; col < cardsPerRow; col++)
             {
-                var card = poolCards[row * cardsPerRow + col];
-                <td>
-                    <input type="checkbox" checked="@card.IsSelected" @onchange="eventArgs => { OnCardIsSelectedChanged(card, (bool) eventArgs.Value); }" /> 
-                    @poolCards[row * cardsPerRow + col].Name 
-                    <br><img src="@card.ImagePath" height="320" width="240">
-                </td>
+                @if (row * cardsPerRow + col < poolCards.Count)
+                {
+                    var card = poolCards[row * cardsPerRow + col];
+                    <td>
+                        <input type="checkbox" checked="@card.IsSelected" @onchange="eventArgs => { OnCardIsSelectedChanged(card, (bool) eventArgs.Value); }" />
+                        <div class="cardname">@poolCards[row * cardsPerRow + col].Name</div>
+                        <img class="cardimage" src="@card.ImagePath" />
+                    </td>
+                }
             }
-        }
-        </tr>  
-    } 
+        </tr>
+    }
 
     <h2>Selected cards (@selectedCards.Count / @characterClass.NumberOfCards)</h2>
     <button @onclick="SaveCards">Save selected cards</button>
     @for (int row = 0; row <= selectedCards.Count / cardsPerRow; row++)
     {
         <tr>
-  
-        @for (int col = 0; col < cardsPerRow; col++)
-        {
-            @if (row * cardsPerRow + col < selectedCards.Count)
+
+            @for (int col = 0; col < cardsPerRow; col++)
             {
-                var card = selectedCards[row * cardsPerRow + col];
-                <td>@card.Name<br><img src="@card.ImagePath" height="320" width="240"></td>
+                @if (row * cardsPerRow + col < selectedCards.Count)
+                {
+                    var card = selectedCards[row * cardsPerRow + col];
+                    <td>
+                        <div class="cardname">@poolCards[row * cardsPerRow + col].Name</div>
+                        <img class="cardimage" src="@card.ImagePath" />
+                    </td>
+                }
             }
-        }
-        </tr>  
-    } 
+        </tr>
+    }
 }
 
 @code {
@@ -94,7 +97,7 @@ else
         character = CharacterService.GetCharacter(id);
         characterClass = ClassService.GetClass(character.ClassId);
         var tempAvailableCards = new List<AbilityCard>(character.PoolCards);
-        tempAvailableCards.ForEach( c => c.IsSelected = character.SelectedCards.Any( card => card.Id == c.Id));
+        tempAvailableCards.ForEach(c => c.IsSelected = character.SelectedCards.Any(card => card.Id == c.Id));
         poolCards = tempAvailableCards;
         UpdateSelecedCards();
     }

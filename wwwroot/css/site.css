@@ -181,3 +181,22 @@ app {
         display: block;
     }
 }
+
+div.nav-sub-headline {
+    color: white;
+    font-weight: bold;
+    margin-left: 30px;
+}
+
+div.cardname {
+    width: 240px;
+    white-space: nowrap;
+    /* background-color: lightblue; */
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+img.cardimage {
+    width: 240px;
+    height: 320px;
+}

@@ -17,7 +17,10 @@
                 <span class="oi oi-home" aria-hidden="true"></span> Home
             </NavLink>
         </li>
+    </ul>
 
+    <div class="nav-sub-headline">Chars</div>
+    <ul class="nav flex-column">
         @foreach (var character in characters)
         {
             <li class="nav-item px-3">
@@ -26,6 +29,11 @@
                 </NavLink>
             </li>
         }
+
+    </ul>
+
+    <div class="nav-sub-headline">Classes</div>
+    <ul class="nav flex-column">
 
         @foreach (var cls in classes)
         {
