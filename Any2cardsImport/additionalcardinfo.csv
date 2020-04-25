@@ -28,6 +28,37 @@ Id;Level;Name;FileName
 27;8;;selfish-retribution.png
 28;9;;king-of-the-hill.png
 29;9;;face-your-end.png
+30;1;;proximity-mine.png
+31;1;;harmless-contraption.png
+32;1;;flamethrower.png
+33;1;;hook-gun.png
+34;1;;ink-bomb.png
+35;1;;net-shooter.png
+36;1;;stun-shot.png
+37;1;;reinvigorating-elixir.png
+38;1;;restorative-mist.png
+39;1;;energizing-tonic.png
+40;1;;enhancement-field.png
+41;1;;toxic-bolt.png
+42;X;;reviving-shock.png
+43;X;;volatile-concoction.png
+44;X;;potent-potables.png
+45;2;;stamina-booster.png
+46;2;;disorienting-flash.png
+47;3;;tinkerers-tools.png
+48;3;;crank-bow.png
+49;4;;dangerous-contraption.png
+50;4;;micro-bots.png
+51;5;;noxious-vials.png
+52;5;;disintegration-beam.png
+53;6;;gas-canister.png
+54;6;;auto-turret.png
+55;7;;murderous-contraption.png
+56;7;;curative-aerosol.png
+57;8;;jet-propulsion.png
+58;8;;harsh-stimulants.png
+59;9;;lethal-injection.png
+60;9;;chimeric-formula.png
 61;1;;fire-orbs.png
 62;1;;impaling-eruption.png
 63;1;;reviving-ether.png
@@ -142,32 +173,4 @@ Id;Level;Name;FileName
 172;8;;domination.png
 173;9;;many-as-one.png
 174;9;;phantasmal-killer.png
-477;1;Verwirrendes Brüllen;disorienting-roar.png
-478;1;Seelentausch;spirit-swap.png
-479;1;Giftiger Heiler;venomous-ally.png
-480;1;Unbarmherziger Helfer;relentless-ally.png
-481;1;Konzentrierte Wut;concentrated-rage.png
-482;1;Wundheilung;disappearing-wounds.png
-483;1;Flickenpelz;patch-fur.png
-484;1;Zerfleischen;maul.png
-485;1;Schwungvoller Hieb;forceful-swipe.png
-486;1;Sirrende Pfeile;howling-bolts.png
-487;X;Kreisender Helfer;soaring-ally.png
-488;X;Fokussierte Aggression;focused-aggression.png
-489;X;Geborgte Essenz;borrowed-essence.png
-490;2;Ermächtigungsschlag;energizing-strike.png
-491;2;Erdstachel;earthen-spikes.png
-492;3;Boshafter Helfer;vicious-ally.png
-493;3;Unaufhaltsame Bestie;unstoppable-beast.png
-494;4;Altes Schutzzeichen;ancient-ward.png
-495;4;Durchschlag;punch-through.png
-496;5;Tobsucht;rampage.png
-497;5;Steinsiegel;stone-sigil.png
-498;6;Ursegen;primal-blessing.png
-499;6;Blutdurst;blood-hunger.png
-500;7;Sturmsiegel;storm-sigil.png
-501;7;Meisterkraft;tyrannical-force
-502;8;Auskeilen;lash-out.png
-503;8;Naturheilmittel;natural-remedy.png
-504;9;Schlund des Todes;jaws-of-death.png
-505;9;Stammessiegel;tribal-sigil.png
+
