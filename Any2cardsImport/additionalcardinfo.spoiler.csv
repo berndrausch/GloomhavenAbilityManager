@@ -1,59 +1,146 @@
 Id;Level;Name;FileName
-348;1;Kraftballade;power-ballad.png
-349;1;Defensive Weise;defensive-ditty.png
-350;1;Gesang der Eile;song-of-speed.png
-351;1;Verwandeltes Ergebnis;tuning-the-outcome.png
-352;1;Motivationsruf;call-to-action.png
-353;1;Wehrdolch;warding-dagger.png
-354;1;Bauchrednerin;throw-voice.png
-355;1;Singender Pfeil;singing-arrow.png
-356;1;Marschtakt;marching-beat.png
-357;X;Wehmutswunde;wistful-wounding.png
-358;X;Endloser Choral;unending-chant.png
-359;X;Flinke Klinge;nimble-knife.png
-360;2;Sanftes Schlaflied;soothing-lullaby.png
-361;2;Tempowechsel;change-tempo.png
-362;3;Widerhallende Arie;echoing-aria.png
-363;3;Lähmender Refrain;crippling-chorus.png
-364;4;Verwirrende Klage;disorienting-dirge.png
-365;4;Inspirierende Hymne;inspiring-anthem.png
-366;5;Melodie und Harmonie;melody-and-harmony.png
-367;5;Mitreißender Klang;mobilizing-measure.png
-368;6;Saitenbünde;pull-the-strings.png
-369;6;Schreckensbringerin;provoke-terror.png
-370;7;Albtraum-Melodie;nightmare-serenade.png
-371;7;Donnernde Proklamation;booming-proclamation.png
-372;8;Friedvolles Trillern;tranquil-trill.png
-373;8;Gebieterische Präsenz;commanding-presence.png
-374;9;Fesselnde Vorstellung;captivating-performance.png
-375;9;Schattenspiel;shadow-puppets.png
-476;1;Bären Referenz;bear-reference.png;
-477;1;Verwirrendes Brüllen;disorienting-roar.png
-478;1;Seelentausch;spirit-swap.png
-479;1;Giftiger Heiler;venomous-ally.png
-480;1;Unbarmherziger Helfer;relentless-ally.png
-481;1;Konzentrierte Wut;concentrated-rage.png
-482;1;Wundheilung;disappearing-wounds.png
-483;1;Flickenpelz;patch-fur.png
-484;1;Zerfleischen;maul.png
-485;1;Schwungvoller Hieb;forceful-swipe.png
-486;1;Sirrende Pfeile;howling-bolts.png
-487;X;Kreisender Helfer;soaring-ally.png
-488;X;Fokussierte Aggression;focused-aggression.png
-489;X;Geborgte Essenz;borrowed-essence.png
-490;2;Ermächtigungsschlag;energizing-strike.png
-491;2;Erdstachel;earthen-spikes.png
-492;3;Boshafter Helfer;vicious-ally.png
-493;3;Unaufhaltsame Bestie;unstoppable-beast.png
-494;4;Altes Schutzzeichen;ancient-ward.png
-495;4;Durchschlag;punch-through.png
-496;5;Tobsucht;rampage.png
-497;5;Steinsiegel;stone-sigil.png
-498;6;Ursegen;primal-blessing.png
-499;6;Blutdurst;blood-hunger.png
-500;7;Sturmsiegel;storm-sigil.png
-501;7;Meisterkraft;tyrannical-force
-502;8;Auskeilen;lash-out.png
-503;8;Naturheilmittel;natural-remedy.png
-504;9;Schlund des Todes;jaws-of-death.png
-505;9;Stammessiegel;tribal-sigil.png
+175;1;;purifying-aura.png
+176;1;;cautious-advance.png
+177;1;;brilliant-prayer.png
+178;1;;empowering-command.png
+179;1;;protective-blessing.png
+180;1;;dazzling-charge.png
+181;1;;tactical-order.png
+182;1;;holy-strike.png
+183;1;;hammer-blow.png
+184;1;;defensive-stance.png
+185;1;;lay-on-hands.png
+186;X;;daybreak.png
+187;X;;beacon-of-light.png
+188;X;;glorious-bolt.png
+189;2;;practical-plans.png
+190;2;;unwavering-mandate.png
+191;3;;burning-flash.png
+192;3;;mobilizing-axiom.png
+193;4;;righteous-strength.png
+194;4;;engulfing-radiance.png
+195;5;;path-of-glory.png
+196;5;;scales-of-justice.png
+197;6;;supportive-chant.png
+198;6;;illuminate-the-target.png
+199;7;;weapon-of-purity.png
+200;7;;bright-aegis.png
+201;8;;cleansing-force.png
+202;8;;inspiring-sanctity.png
+203;9;;angelic-ascension.png
+204;9;;divine-intervention.png
+233;1;;forged-ferocity.png
+234;1;;wild-animation.png
+235;1;;living-night.png
+236;1;;unending-dominance.png
+237;1;;unwavering-hand.png
+238;1;;mighty-bond.png
+239;1;;bonded-might.png
+240;1;;biting-wind.png
+241;1;;black-fire.png
+242;X;;leathery-wings.png
+243;X;;volatile-flame.png
+244;X;;ethereal-vines.png
+245;2;;earthen-steed.png
+246;2;;grasping-the-void.png
+247;3;;tear-the-fabric.png
+248;3;;oozing-manifestation.png
+249;4;;living-mountain.png
+250;4;;divided-mind.png
+251;5;;strength-in-numbers.png
+252;5;;conjured-aid.png
+253;6;;endless-spikes.png
+254;6;;inexorable-momentum.png
+255;7;;negative-energy.png
+256;7;;staff-of-visions.png
+257;8;;intervening-apparitions.png
+258;8;;otherworldly-rage.png
+259;9;;interplanar-mastery.png
+260;9;;horned-majesty.png
+319;1;;resolute-stand.png
+320;1;;growing-rage.png
+321;1;;strength-in-agony.png
+322;1;;defiance-of-death.png
+323;1;;from-the-brink.png
+324;1;;blood-pact.png
+325;1;;cauterize.png
+326;1;;dazing-wound.png
+327;1;;furious-aid.png
+328;1;;bounce-back.png
+329;X;;unbridled-power.png
+330;X;;glass-hammer.png
+331;X;;numb-the-pain.png
+332;2;;reckless-offensive.png
+333;2;;break-the-chains.png
+334;3;;spiked-armor.png
+335;3;;fatal-fury.png
+336;4;;flurry-of-axes.png
+337;4;;shiny-distraction.png
+338;5;;seeing-red.png
+339;5;;final-fight.png
+340;6;;devil-horns.png
+341;6;;unstoppable-destruction.png
+342;7;;burning-hatred.png
+343;7;;careless-charge.png
+344;8;;bone-breaker.png
+345;8;;vengeful-barrage.png
+346;9;;immortality.png
+347;9;;the-maw-of-madness.png
+348;1;;Kraftballade;power-ballad.png
+349;1;;Defensive Weise;defensive-ditty.png
+350;1;;Gesang der Eile;song-of-speed.png
+351;1;;Verwandeltes Ergebnis;tuning-the-outcome.png
+352;1;;Motivationsruf;call-to-action.png
+353;1;;Wehrdolch;warding-dagger.png
+354;1;;Bauchrednerin;throw-voice.png
+355;1;;Singender Pfeil;singing-arrow.png
+356;1;;Marschtakt;marching-beat.png
+357;X;;Wehmutswunde;wistful-wounding.png
+358;X;;Endloser Choral;unending-chant.png
+359;X;;Flinke Klinge;nimble-knife.png
+360;2;;Sanftes Schlaflied;soothing-lullaby.png
+361;2;;Tempowechsel;change-tempo.png
+362;3;;Widerhallende Arie;echoing-aria.png
+363;3;;Lähmender Refrain;crippling-chorus.png
+364;4;;Verwirrende Klage;disorienting-dirge.png
+365;4;;Inspirierende Hymne;inspiring-anthem.png
+366;5;;Melodie und Harmonie;melody-and-harmony.png
+367;5;;Mitreißender Klang;mobilizing-measure.png
+368;6;;Saitenbünde;pull-the-strings.png
+369;6;;Schreckensbringerin;provoke-terror.png
+370;7;;Albtraum-Melodie;nightmare-serenade.png
+371;7;;Donnernde Proklamation;booming-proclamation.png
+372;8;;Friedvolles Trillern;tranquil-trill.png
+373;8;;Gebieterische Präsenz;commanding-presence.png
+374;9;;Fesselnde Vorstellung;captivating-performance.png
+375;9;;Schattenspiel;shadow-puppets.png
+476;1;;Bären Referenz;bear-reference.png;
+477;1;;Verwirrendes Brüllen;disorienting-roar.png
+478;1;;Seelentausch;spirit-swap.png
+479;1;;Giftiger Heiler;venomous-ally.png
+480;1;;Unbarmherziger Helfer;relentless-ally.png
+481;1;;Konzentrierte Wut;concentrated-rage.png
+482;1;;Wundheilung;disappearing-wounds.png
+483;1;;Flickenpelz;patch-fur.png
+484;1;;Zerfleischen;maul.png
+485;1;;Schwungvoller Hieb;forceful-swipe.png
+486;1;;Sirrende Pfeile;howling-bolts.png
+487;X;;Kreisender Helfer;soaring-ally.png
+488;X;;Fokussierte Aggression;focused-aggression.png
+489;X;;Geborgte Essenz;borrowed-essence.png
+490;2;;Ermächtigungsschlag;energizing-strike.png
+491;2;;Erdstachel;earthen-spikes.png
+492;3;;Boshafter Helfer;vicious-ally.png
+493;3;;Unaufhaltsame Bestie;unstoppable-beast.png
+494;4;;Altes Schutzzeichen;ancient-ward.png
+495;4;;Durchschlag;punch-through.png
+496;5;;Tobsucht;rampage.png
+497;5;;Steinsiegel;stone-sigil.png
+498;6;;Ursegen;primal-blessing.png
+499;6;;Blutdurst;blood-hunger.png
+500;7;;Sturmsiegel;storm-sigil.png
+501;7;;Meisterkraft;tyrannical-force
+502;8;;Auskeilen;lash-out.png
+503;8;;Naturheilmittel;natural-remedy.png
+504;9;;Schlund des Todes;jaws-of-death.png
+505;9;;Stammessiegel;tribal-sigil.png
