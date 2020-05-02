@@ -31,7 +31,7 @@ else
                     var card = poolCards[row * cardsPerRow + col];
                     <td>
                         <input type="checkbox" checked="@card.IsSelected" @onchange="eventArgs => { OnCardIsSelectedChanged(card, (bool) eventArgs.Value); }" />
-                        <div class="cardname">@poolCards[row * cardsPerRow + col].Name</div>
+                        <div class="cardname">@card.Name</div>
                         <img class="cardimage" src="@card.ImagePath" />
                     </td>
                 }
@@ -51,7 +51,7 @@ else
                 {
                     var card = selectedCards[row * cardsPerRow + col];
                     <td>
-                        <div class="cardname">@poolCards[row * cardsPerRow + col].Name</div>
+                        <div class="cardname">@card.Name</div>
                         <img class="cardimage" src="@card.ImagePath" />
                     </td>
                 }
