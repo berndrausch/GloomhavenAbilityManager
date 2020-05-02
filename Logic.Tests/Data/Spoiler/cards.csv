@@ -1,0 +1,319 @@
+Id;ClassId;Level;Name;ImagePath
+1;1;1;Trample;character-ability-cards\BR\trample.png
+2;1;1;Eye For An Eye;character-ability-cards\BR\eye-for-an-eye.png
+3;1;1;Sweeping Blow;character-ability-cards\BR\sweeping-blow.png
+4;1;1;Provoking Roar;character-ability-cards\BR\provoking-roar.png
+5;1;1;Overwhelming Assault;character-ability-cards\BR\overwhelming-assault.png
+6;1;1;Grab And Go;character-ability-cards\BR\grab-and-go.png
+7;1;1;Warding Strength;character-ability-cards\BR\warding-strength.png
+8;1;1;Shield Bash;character-ability-cards\BR\shield-bash.png
+9;1;1;Leaping Cleave;character-ability-cards\BR\leaping-cleave.png
+10;1;1;Spare Dagger;character-ability-cards\BR\spare-dagger.png
+11;1;X;Skewer;character-ability-cards\BR\skewer.png
+12;1;X;Balanced Measure;character-ability-cards\BR\balanced-measure.png
+13;1;X;Wall Of Doom;character-ability-cards\BR\wall-of-doom.png
+14;1;2;Fatal Advance;character-ability-cards\BR\fatal-advance.png
+15;1;2;Juggernaut;character-ability-cards\BR\juggernaut.png
+16;1;3;Hook And Chain;character-ability-cards\BR\hook-and-chain.png
+17;1;3;Brute Force;character-ability-cards\BR\brute-force.png
+18;1;4;Unstoppable Charge;character-ability-cards\BR\unstoppable-charge.png
+19;1;4;Devastating Hack;character-ability-cards\BR\devastating-hack.png
+20;1;5;Whirlwind;character-ability-cards\BR\whirlwind.png
+21;1;5;Skirmishing Maneuver;character-ability-cards\BR\skirmishing-maneuver.png
+22;1;6;Quietus;character-ability-cards\BR\quietus.png
+23;1;6;Immovable Phalanx;character-ability-cards\BR\immovable-phalanx.png
+24;1;7;Defensive Tactics;character-ability-cards\BR\defensive-tactics.png
+25;1;7;Crippling Offensive;character-ability-cards\BR\crippling-offensive.png
+26;1;8;Frenzied Onslaught;character-ability-cards\BR\frenzied-onslaught.png
+27;1;8;Selfish Retribution;character-ability-cards\BR\selfish-retribution.png
+28;1;9;King Of The Hill;character-ability-cards\BR\king-of-the-hill.png
+29;1;9;Face Your End;character-ability-cards\BR\face-your-end.png
+30;6;1;Proximity Mine;character-ability-cards\TI\proximity-mine.png
+31;6;1;Harmless Contraption;character-ability-cards\TI\harmless-contraption.png
+32;6;1;Flamethrower;character-ability-cards\TI\flamethrower.png
+33;6;1;Hook Gun;character-ability-cards\TI\hook-gun.png
+34;6;1;Ink Bomb;character-ability-cards\TI\ink-bomb.png
+35;6;1;Net Shooter;character-ability-cards\TI\net-shooter.png
+36;6;1;Stun Shot;character-ability-cards\TI\stun-shot.png
+37;6;1;Reinvigorating Elixir;character-ability-cards\TI\reinvigorating-elixir.png
+38;6;1;Restorative Mist;character-ability-cards\TI\restorative-mist.png
+39;6;1;Energizing Tonic;character-ability-cards\TI\energizing-tonic.png
+40;6;1;Enhancement Field;character-ability-cards\TI\enhancement-field.png
+41;6;1;Toxic Bolt;character-ability-cards\TI\toxic-bolt.png
+42;6;X;Reviving Shock;character-ability-cards\TI\reviving-shock.png
+43;6;X;Volatile Concoction;character-ability-cards\TI\volatile-concoction.png
+44;6;X;Potent Potables;character-ability-cards\TI\potent-potables.png
+45;6;2;Stamina Booster;character-ability-cards\TI\stamina-booster.png
+46;6;2;Disorienting Flash;character-ability-cards\TI\disorienting-flash.png
+47;6;3;Tinkerers Tools;character-ability-cards\TI\tinkerers-tools.png
+48;6;3;Crank Bow;character-ability-cards\TI\crank-bow.png
+49;6;4;Dangerous Contraption;character-ability-cards\TI\dangerous-contraption.png
+50;6;4;Micro Bots;character-ability-cards\TI\micro-bots.png
+51;6;5;Noxious Vials;character-ability-cards\TI\noxious-vials.png
+52;6;5;Disintegration Beam;character-ability-cards\TI\disintegration-beam.png
+53;6;6;Gas Canister;character-ability-cards\TI\gas-canister.png
+54;6;6;Auto Turret;character-ability-cards\TI\auto-turret.png
+55;6;7;Murderous Contraption;character-ability-cards\TI\murderous-contraption.png
+56;6;7;Curative Aerosol;character-ability-cards\TI\curative-aerosol.png
+57;6;8;Jet Propulsion;character-ability-cards\TI\jet-propulsion.png
+58;6;8;Harsh Stimulants;character-ability-cards\TI\harsh-stimulants.png
+59;6;9;Lethal Injection;character-ability-cards\TI\lethal-injection.png
+60;6;9;Chimeric Formula;character-ability-cards\TI\chimeric-formula.png
+61;5;1;Fire Orbs;character-ability-cards\SW\fire-orbs.png
+62;5;1;Impaling Eruption;character-ability-cards\SW\impaling-eruption.png
+63;5;1;Reviving Ether;character-ability-cards\SW\reviving-ether.png
+64;5;1;Freezing Nova;character-ability-cards\SW\freezing-nova.png
+65;5;1;Mana Bolt;character-ability-cards\SW\mana-bolt.png
+66;5;1;Frost Armor;character-ability-cards\SW\frost-armor.png
+67;5;1;Flame Strike;character-ability-cards\SW\flame-strike.png
+68;5;1;Ride The Wind;character-ability-cards\SW\ride-the-wind.png
+69;5;X;Crackling Air;character-ability-cards\SW\crackling-air.png
+70;5;X;Hardened Spikes;character-ability-cards\SW\hardened-spikes.png
+71;5;X;Aid From The Ether;character-ability-cards\SW\aid-from-the-ether.png
+72;5;2;Flashing Burst;character-ability-cards\SW\flashing-burst.png
+73;5;2;Icy Blast;character-ability-cards\SW\icy-blast.png
+74;5;3;Cold Fire;character-ability-cards\SW\cold-fire.png
+75;5;3;Elemental Aid;character-ability-cards\SW\elemental-aid.png
+76;5;4;Spirit Of Doom;character-ability-cards\SW\spirit-of-doom.png
+77;5;4;Forked Beam;character-ability-cards\SW\forked-beam.png
+78;5;5;Chromatic Explosion;character-ability-cards\SW\chromatic-explosion.png
+79;5;5;Engulfed In Flames;character-ability-cards\SW\engulfed-in-flames.png
+80;5;6;Living Torch;character-ability-cards\SW\living-torch.png
+81;5;6;Frozen Night;character-ability-cards\SW\frozen-night.png
+82;5;7;Twin Restoration;character-ability-cards\SW\twin-restoration.png
+83;5;7;Stone Fists;character-ability-cards\SW\stone-fists.png
+84;5;8;Zephyr Wings;character-ability-cards\SW\zephyr-wings.png
+85;5;8;Cold Front;character-ability-cards\SW\cold-front.png
+86;5;9;Black Hole;character-ability-cards\SW\black-hole.png
+87;5;9;Inferno;character-ability-cards\SW\inferno.png
+88;4;1;Single Out;character-ability-cards\SC\single-out.png
+89;4;1;Flanking Strike;character-ability-cards\SC\flanking-strike.png
+90;4;1;Smoke Bomb;character-ability-cards\SC\smoke-bomb.png
+91;4;1;Backstab;character-ability-cards\SC\backstab.png
+92;4;1;Thiefs Knack;character-ability-cards\SC\thiefs-knack.png
+93;4;1;Venom Shiv;character-ability-cards\SC\venom-shiv.png
+94;4;1;Throwing Knives;character-ability-cards\SC\throwing-knives.png
+95;4;1;Quick Hands;character-ability-cards\SC\quick-hands.png
+96;4;1;Special Mixture;character-ability-cards\SC\special-mixture.png
+97;4;X;Sinister Opportunity;character-ability-cards\SC\sinister-opportunity.png
+98;4;X;Tricksters Reversal;character-ability-cards\SC\tricksters-reversal.png
+99;4;X;Swift Bow;character-ability-cards\SC\swift-bow.png
+100;4;2;Open Wound;character-ability-cards\SC\open-wound.png
+101;4;2;Flintlock;character-ability-cards\SC\flintlock.png
+102;4;3;Hidden Daggers;character-ability-cards\SC\hidden-daggers.png
+103;4;3;Duelists Advance;character-ability-cards\SC\duelists-advance.png
+104;4;4;Flurry Of Blades;character-ability-cards\SC\flurry-of-blades.png
+105;4;4;Gruesome Advantage;character-ability-cards\SC\gruesome-advantage.png
+106;4;5;Cull The Weak;character-ability-cards\SC\cull-the-weak.png
+107;4;5;Visage Of The Inevitable;character-ability-cards\SC\visage-of-the-inevitable.png
+108;4;6;Crippling Poison;character-ability-cards\SC\crippling-poison.png
+109;4;6;Burning Oil;character-ability-cards\SC\burning-oil.png
+110;4;7;Stick To The Shadows;character-ability-cards\SC\stick-to-the-shadows.png
+111;4;7;Spring The Trap;character-ability-cards\SC\spring-the-trap.png
+112;4;8;Stiletto Storm;character-ability-cards\SC\stiletto-storm.png
+113;4;8;Pains End;character-ability-cards\SC\pains-end.png
+114;4;9;Long Con;character-ability-cards\SC\long-con.png
+115;4;9;Watch It Burn;character-ability-cards\SC\watch-it-burn.png
+116;2;1;Opposing Strike (Pendelschlag);character-ability-cards\CH\opposing-strike.png
+117;2;1;Crushing Grasp (Zertrümmernder Griff);character-ability-cards\CH\crushing-grasp.png
+118;2;1;Avalanche (Lawine);character-ability-cards\CH\avalanche.png
+119;2;1;Rumbling Advance (Grollender Vorstoß);character-ability-cards\CH\rumbling-advance.png
+120;2;1;Massive Boulder (Riesiger Felsen);character-ability-cards\CH\massive-boulder.png
+121;2;1;Backup Ammunition (Ersatzmunition);character-ability-cards\CH\backup-ammunition.png
+122;2;1;Rock Tunnel (Steintunnel);character-ability-cards\CH\rock-tunnel.png
+123;2;1;Unstable Upheaval (Instabiles Beben);character-ability-cards\CH\unstable-upheaval.png
+124;2;1;Crater (Krater);character-ability-cards\CH\crater.png
+125;2;1;Dirt Tornado (Staubwirbel);character-ability-cards\CH\dirt-tornado.png
+126;2;1;Earthen Clod (Erdklumpen);character-ability-cards\CH\earthen-clod.png
+127;2;X;Heaving Swing (Umwerfender Schlag);character-ability-cards\CH\heaving-swing.png
+128;2;X;Forceful Storm (Mächtiger Sturm);character-ability-cards\CH\forceful-storm.png
+129;2;X;Natures Lift (Erhebende Natur);character-ability-cards\CH\natures-lift.png
+130;2;2;Explosive Punch (Explosive Faust);character-ability-cards\CH\explosive-punch.png
+131;2;2;Sentient Growth (Bewusstes Wachstum);character-ability-cards\CH\sentient-growth.png
+132;2;3;Clear The Way (Wegbereiter);character-ability-cards\CH\clear-the-way.png
+133;2;3;Blunt Force (Stumpfe Gewalt);character-ability-cards\CH\blunt-force.png
+134;2;4;Rock Slide (Bergrutsch);character-ability-cards\CH\rock-slide.png
+135;2;4;Kinetic Assault (Kinetischer Angriff);character-ability-cards\CH\kinetic-assault.png
+136;2;5;Petrify (Versteinern);character-ability-cards\CH\petrify.png
+137;2;5;Stone Pummel (Steinhagel);character-ability-cards\CH\stone-pummel.png
+138;2;6;Dig Pit (Fallgrube);character-ability-cards\CH\dig-pit.png
+139;2;6;Cataclysm (Kataklysmus);character-ability-cards\CH\cataclysm.png
+140;2;7;Meteor (Meteor);character-ability-cards\CH\meteor.png
+141;2;7;Brutal Momentum (Brutaler Schwung);character-ability-cards\CH\brutal-momentum.png
+142;2;8;Rocky End (Steinernes Ende);character-ability-cards\CH\rocky-end.png
+143;2;8;Lumbering Bash (Schwerfälliger Schlag);character-ability-cards\CH\lumbering-bash.png
+144;2;9;Blind Destruction (Blinde Zerstörung);character-ability-cards\CH\blind-destruction.png
+145;2;9;Pulverize (Pulverisieren);character-ability-cards\CH\pulverize.png
+146;3;1;Submissive Affliction;character-ability-cards\MT\submissive-affliction.png
+147;3;1;Into The Night;character-ability-cards\MT\into-the-night.png
+148;3;1;Fearsome Blade;character-ability-cards\MT\fearsome-blade.png
+149;3;1;Feedback Loop;character-ability-cards\MT\feedback-loop.png
+150;3;1;Gnawing Horde;character-ability-cards\MT\gnawing-horde.png
+151;3;1;The Minds Weakness;character-ability-cards\MT\the-minds-weakness.png
+152;3;1;Parasitic Influence;character-ability-cards\MT\parasitic-influence.png
+153;3;1;Scurry;character-ability-cards\MT\scurry.png
+154;3;1;Perverse Edge;character-ability-cards\MT\perverse-edge.png
+155;3;1;Empathetic Assault;character-ability-cards\MT\empathetic-assault.png
+156;3;X;Withering Claw;character-ability-cards\MT\withering-claw.png
+157;3;X;Possession;character-ability-cards\MT\possession.png
+158;3;X;Frigid Apparition;character-ability-cards\MT\frigid-apparition.png
+159;3;2;Wretched Creature;character-ability-cards\MT\wretched-creature.png
+160;3;2;Hostile Takeover;character-ability-cards\MT\hostile-takeover.png
+161;3;3;Brain Leech;character-ability-cards\MT\brain-leech.png
+162;3;3;Silent Scream;character-ability-cards\MT\silent-scream.png
+163;3;4;Pilfer;character-ability-cards\MT\pilfer.png
+164;3;4;Cranium Overload;character-ability-cards\MT\cranium-overload.png
+165;3;5;Mass Hysteria;character-ability-cards\MT\mass-hysteria.png
+166;3;5;Frozen Mind;character-ability-cards\MT\frozen-mind.png
+167;3;6;Corrupting Embrace;character-ability-cards\MT\corrupting-embrace.png
+168;3;6;Dark Frenzy;character-ability-cards\MT\dark-frenzy.png
+169;3;7;Vicious Blood;character-ability-cards\MT\vicious-blood.png
+170;3;7;Psychic Projection;character-ability-cards\MT\psychic-projection.png
+171;3;8;Shared Nightmare;character-ability-cards\MT\shared-nightmare.png
+172;3;8;Domination;character-ability-cards\MT\domination.png
+173;3;9;Many As One;character-ability-cards\MT\many-as-one.png
+174;3;9;Phantasmal Killer;character-ability-cards\MT\phantasmal-killer.png
+175;11;1;Purifying Aura;character-ability-cards\SK\purifying-aura.png
+176;11;1;Cautious Advance;character-ability-cards\SK\cautious-advance.png
+177;11;1;Brilliant Prayer;character-ability-cards\SK\brilliant-prayer.png
+178;11;1;Empowering Command;character-ability-cards\SK\empowering-command.png
+179;11;1;Protective Blessing;character-ability-cards\SK\protective-blessing.png
+180;11;1;Dazzling Charge;character-ability-cards\SK\dazzling-charge.png
+181;11;1;Tactical Order;character-ability-cards\SK\tactical-order.png
+182;11;1;Holy Strike;character-ability-cards\SK\holy-strike.png
+183;11;1;Hammer Blow;character-ability-cards\SK\hammer-blow.png
+184;11;1;Defensive Stance;character-ability-cards\SK\defensive-stance.png
+185;11;1;Lay On Hands;character-ability-cards\SK\lay-on-hands.png
+186;11;X;Daybreak;character-ability-cards\SK\daybreak.png
+187;11;X;Beacon Of Light;character-ability-cards\SK\beacon-of-light.png
+188;11;X;Glorious Bolt;character-ability-cards\SK\glorious-bolt.png
+189;11;2;Practical Plans;character-ability-cards\SK\practical-plans.png
+190;11;2;Unwavering Mandate;character-ability-cards\SK\unwavering-mandate.png
+191;11;3;Burning Flash;character-ability-cards\SK\burning-flash.png
+192;11;3;Mobilizing Axiom;character-ability-cards\SK\mobilizing-axiom.png
+193;11;4;Righteous Strength;character-ability-cards\SK\righteous-strength.png
+194;11;4;Engulfing Radiance;character-ability-cards\SK\engulfing-radiance.png
+195;11;5;Path Of Glory;character-ability-cards\SK\path-of-glory.png
+196;11;5;Scales Of Justice;character-ability-cards\SK\scales-of-justice.png
+197;11;6;Supportive Chant;character-ability-cards\SK\supportive-chant.png
+198;11;6;Illuminate The Target;character-ability-cards\SK\illuminate-the-target.png
+199;11;7;Weapon Of Purity;character-ability-cards\SK\weapon-of-purity.png
+200;11;7;Bright Aegis;character-ability-cards\SK\bright-aegis.png
+201;11;8;Cleansing Force;character-ability-cards\SK\cleansing-force.png
+202;11;8;Inspiring Sanctity;character-ability-cards\SK\inspiring-sanctity.png
+203;11;9;Angelic Ascension;character-ability-cards\SK\angelic-ascension.png
+204;11;9;Divine Intervention;character-ability-cards\SK\divine-intervention.png
+233;9;1;Forged Ferocity;character-ability-cards\SU\forged-ferocity.png
+234;9;1;Wild Animation;character-ability-cards\SU\wild-animation.png
+235;9;1;Living Night;character-ability-cards\SU\living-night.png
+236;9;1;Unending Dominance;character-ability-cards\SU\unending-dominance.png
+237;9;1;Unwavering Hand;character-ability-cards\SU\unwavering-hand.png
+238;9;1;Mighty Bond;character-ability-cards\SU\mighty-bond.png
+239;9;1;Bonded Might;character-ability-cards\SU\bonded-might.png
+240;9;1;Biting Wind;character-ability-cards\SU\biting-wind.png
+241;9;1;Black Fire;character-ability-cards\SU\black-fire.png
+242;9;X;Leathery Wings;character-ability-cards\SU\leathery-wings.png
+243;9;X;Volatile Flame;character-ability-cards\SU\volatile-flame.png
+244;9;X;Ethereal Vines;character-ability-cards\SU\ethereal-vines.png
+245;9;2;Earthen Steed;character-ability-cards\SU\earthen-steed.png
+246;9;2;Grasping The Void;character-ability-cards\SU\grasping-the-void.png
+247;9;3;Tear The Fabric;character-ability-cards\SU\tear-the-fabric.png
+248;9;3;Oozing Manifestation;character-ability-cards\SU\oozing-manifestation.png
+249;9;4;Living Mountain;character-ability-cards\SU\living-mountain.png
+250;9;4;Divided Mind;character-ability-cards\SU\divided-mind.png
+251;9;5;Strength In Numbers;character-ability-cards\SU\strength-in-numbers.png
+252;9;5;Conjured Aid;character-ability-cards\SU\conjured-aid.png
+253;9;6;Endless Spikes;character-ability-cards\SU\endless-spikes.png
+254;9;6;Inexorable Momentum;character-ability-cards\SU\inexorable-momentum.png
+255;9;7;Negative Energy;character-ability-cards\SU\negative-energy.png
+256;9;7;Staff Of Visions;character-ability-cards\SU\staff-of-visions.png
+257;9;8;Intervening Apparitions;character-ability-cards\SU\intervening-apparitions.png
+258;9;8;Otherworldly Rage;character-ability-cards\SU\otherworldly-rage.png
+259;9;9;Interplanar Mastery;character-ability-cards\SU\interplanar-mastery.png
+260;9;9;Horned Majesty;character-ability-cards\SU\horned-majesty.png
+319;10;1;Resolute Stand;character-ability-cards\BE\resolute-stand.png
+320;10;1;Growing Rage;character-ability-cards\BE\growing-rage.png
+321;10;1;Strength In Agony;character-ability-cards\BE\strength-in-agony.png
+322;10;1;Defiance Of Death;character-ability-cards\BE\defiance-of-death.png
+323;10;1;From The Brink;character-ability-cards\BE\from-the-brink.png
+324;10;1;Blood Pact;character-ability-cards\BE\blood-pact.png
+325;10;1;Cauterize;character-ability-cards\BE\cauterize.png
+326;10;1;Dazing Wound;character-ability-cards\BE\dazing-wound.png
+327;10;1;Furious Aid;character-ability-cards\BE\furious-aid.png
+328;10;1;Bounce Back;character-ability-cards\BE\bounce-back.png
+329;10;X;Unbridled Power;character-ability-cards\BE\unbridled-power.png
+330;10;X;Glass Hammer;character-ability-cards\BE\glass-hammer.png
+331;10;X;Numb The Pain;character-ability-cards\BE\numb-the-pain.png
+332;10;2;Reckless Offensive;character-ability-cards\BE\reckless-offensive.png
+333;10;2;Break The Chains;character-ability-cards\BE\break-the-chains.png
+334;10;3;Spiked Armor;character-ability-cards\BE\spiked-armor.png
+335;10;3;Fatal Fury;character-ability-cards\BE\fatal-fury.png
+336;10;4;Flurry Of Axes;character-ability-cards\BE\flurry-of-axes.png
+337;10;4;Shiny Distraction;character-ability-cards\BE\shiny-distraction.png
+338;10;5;Seeing Red;character-ability-cards\BE\seeing-red.png
+339;10;5;Final Fight;character-ability-cards\BE\final-fight.png
+340;10;6;Devil Horns;character-ability-cards\BE\devil-horns.png
+341;10;6;Unstoppable Destruction;character-ability-cards\BE\unstoppable-destruction.png
+342;10;7;Burning Hatred;character-ability-cards\BE\burning-hatred.png
+343;10;7;Careless Charge;character-ability-cards\BE\careless-charge.png
+344;10;8;Bone Breaker;character-ability-cards\BE\bone-breaker.png
+345;10;8;Vengeful Barrage;character-ability-cards\BE\vengeful-barrage.png
+346;10;9;Immortality;character-ability-cards\BE\immortality.png
+347;10;9;The Maw Of Madness;character-ability-cards\BE\the-maw-of-madness.png
+348;8;1;Power Ballad (Kraftballade);character-ability-cards\SS\power-ballad.png
+349;8;1;Defensive Ditty (Defensive Weise);character-ability-cards\SS\defensive-ditty.png
+350;8;1;Song Of Speed (Gesang der Eile);character-ability-cards\SS\song-of-speed.png
+351;8;1;Tuning The Outcome (Verwandeltes Ergebnis);character-ability-cards\SS\tuning-the-outcome.png
+352;8;1;Call To Action (Motivationsruf);character-ability-cards\SS\call-to-action.png
+353;8;1;Warding Dagger (Wehrdolch);character-ability-cards\SS\warding-dagger.png
+354;8;1;Throw Voice (Bauchrednerin);character-ability-cards\SS\throw-voice.png
+355;8;1;Singing Arrow (Singender Pfeil);character-ability-cards\SS\singing-arrow.png
+356;8;1;Marching Beat (Marschtakt);character-ability-cards\SS\marching-beat.png
+357;8;X;Wistful Wounding (Wehmutswunde);character-ability-cards\SS\wistful-wounding.png
+358;8;X;Unending Chant (Endloser Choral);character-ability-cards\SS\unending-chant.png
+359;8;X;Nimble Knife (Flinke Klinge);character-ability-cards\SS\nimble-knife.png
+360;8;2;Soothing Lullaby (Sanftes Schlaflied);character-ability-cards\SS\soothing-lullaby.png
+361;8;2;Change Tempo (Tempowechsel);character-ability-cards\SS\change-tempo.png
+362;8;3;Echoing Aria (Widerhallende Arie);character-ability-cards\SS\echoing-aria.png
+363;8;3;Crippling Chorus (Lähmender Refrain);character-ability-cards\SS\crippling-chorus.png
+364;8;4;Disorienting Dirge (Verwirrende Klage);character-ability-cards\SS\disorienting-dirge.png
+365;8;4;Inspiring Anthem (Inspirierende Hymne);character-ability-cards\SS\inspiring-anthem.png
+366;8;5;Melody And Harmony (Melodie und Harmonie);character-ability-cards\SS\melody-and-harmony.png
+367;8;5;Mobilizing Measure (Mitreißender Klang);character-ability-cards\SS\mobilizing-measure.png
+368;8;6;Pull The Strings (Saitenbünde);character-ability-cards\SS\pull-the-strings.png
+369;8;6;Provoke Terror (Schreckensbringerin);character-ability-cards\SS\provoke-terror.png
+370;8;7;Nightmare Serenade (Albtraum-Melodie);character-ability-cards\SS\nightmare-serenade.png
+371;8;7;Booming Proclamation (Donnernde Proklamation);character-ability-cards\SS\booming-proclamation.png
+372;8;8;Tranquil Trill (Friedvolles Trillern);character-ability-cards\SS\tranquil-trill.png
+373;8;8;Commanding Presence (Gebieterische Präsenz);character-ability-cards\SS\commanding-presence.png
+374;8;9;Captivating Performance (Fesselnde Vorstellung);character-ability-cards\SS\captivating-performance.png
+375;8;9;Shadow Puppets (Schattenspiel);character-ability-cards\SS\shadow-puppets.png
+476;7;1;Bear Reference (Bären Referenz);character-ability-cards\BT\bear-reference.png
+477;7;1;Disorienting Roar (Verwirrendes Brüllen);character-ability-cards\BT\disorienting-roar.png
+478;7;1;Spirit Swap (Seelentausch);character-ability-cards\BT\spirit-swap.png
+479;7;1;Venomous Ally (Giftiger Heiler);character-ability-cards\BT\venomous-ally.png
+480;7;1;Relentless Ally (Unbarmherziger Helfer);character-ability-cards\BT\relentless-ally.png
+481;7;1;Concentrated Rage (Konzentrierte Wut);character-ability-cards\BT\concentrated-rage.png
+482;7;1;Disappearing Wounds (Wundheilung);character-ability-cards\BT\disappearing-wounds.png
+483;7;1;Patch Fur (Flickenpelz);character-ability-cards\BT\patch-fur.png
+484;7;1;Maul (Zerfleischen);character-ability-cards\BT\maul.png
+485;7;1;Forceful Swipe (Schwungvoller Hieb);character-ability-cards\BT\forceful-swipe.png
+486;7;1;Howling Bolts (Sirrende Pfeile);character-ability-cards\BT\howling-bolts.png
+487;7;X;Soaring Ally (Kreisender Helfer);character-ability-cards\BT\soaring-ally.png
+488;7;X;Focused Aggression (Fokussierte Aggression);character-ability-cards\BT\focused-aggression.png
+489;7;X;Borrowed Essence (Geborgte Essenz);character-ability-cards\BT\borrowed-essence.png
+490;7;2;Energizing Strike (Ermächtigungsschlag);character-ability-cards\BT\energizing-strike.png
+491;7;2;Earthen Spikes (Erdstachel);character-ability-cards\BT\earthen-spikes.png
+492;7;3;Vicious Ally (Boshafter Helfer);character-ability-cards\BT\vicious-ally.png
+493;7;3;Unstoppable Beast (Unaufhaltsame Bestie);character-ability-cards\BT\unstoppable-beast.png
+494;7;4;Ancient Ward (Altes Schutzzeichen);character-ability-cards\BT\ancient-ward.png
+495;7;4;Punch Through (Durchschlag);character-ability-cards\BT\punch-through.png
+496;7;5;Rampage (Tobsucht);character-ability-cards\BT\rampage.png
+497;7;5;Stone Sigil (Steinsiegel);character-ability-cards\BT\stone-sigil.png
+498;7;6;Primal Blessing (Ursegen);character-ability-cards\BT\primal-blessing.png
+499;7;6;Blood Hunger (Blutdurst);character-ability-cards\BT\blood-hunger.png
+500;7;7;Storm Sigil (Sturmsiegel);character-ability-cards\BT\storm-sigil.png
+502;7;8;Lash Out (Auskeilen);character-ability-cards\BT\lash-out.png
+503;7;8;Natural Remedy (Naturheilmittel);character-ability-cards\BT\natural-remedy.png
+504;7;9;Jaws Of Death (Schlund des Todes);character-ability-cards\BT\jaws-of-death.png
+505;7;9;Tribal Sigil (Stammessiegel);character-ability-cards\BT\tribal-sigil.png

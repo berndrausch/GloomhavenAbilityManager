@@ -1,0 +1,57 @@
+﻿using Xunit;
+
+namespace GloomhavenAbilityManager.Logic.Tests
+{
+    public class IntegrationTestsWithDataSetGeneric : IntegrationTests
+    {
+        private const string DataDir = @"Data\Generic";
+
+        [Theory]
+        [InlineData(2)]
+        public void CharacterService_Should_Return_Correct_Number_Of_Characters(int expectedNumber)
+        {
+            CharacterService_Should_Return_Correct_Number_Of_Characters_Base(DataDir, expectedNumber);
+        }
+
+        [Theory]
+        [InlineData(1)]
+        [InlineData(2)]
+        public void CharacterService_Should_Return_Character(int charId)
+        {
+            CharacterService_Should_Return_Character_Base(DataDir, charId);
+        }
+
+        [Theory]
+        [InlineData(1, "Player A", 5, 2, 6, 4)]
+        [InlineData(2, "Player B", 6, 3, 6, 6)]
+        public void CharacterService_Should_Return_Correct_Character(int charId, string expectedName, int expectedLevel, int expectedClassId, int expectedNumberOfPoolCards, int expectedNumberOfSelectedCards)
+        {
+            CharacterService_Should_Return_Correct_Character_Base(DataDir, charId, expectedName, expectedLevel, expectedClassId, expectedNumberOfPoolCards, expectedNumberOfSelectedCards);
+        }
+
+        [Theory]
+        [InlineData(3)]
+        public void CharacterClassService_Should_Return_Correct_Number_Of_Classes(int expectedNumber)
+        {
+            CharacterClassService_Should_Return_Correct_Number_Of_Classes_Base(DataDir, expectedNumber);
+        }
+
+        [Theory]
+        [InlineData(1)]
+        [InlineData(2)]
+        [InlineData(3)]
+        public void CharacterClassService_Should_Return_Class(int classId)
+        {
+            CharacterClassService_Should_Return_Class_Base(DataDir, classId);
+        }
+
+        [Theory]
+        [InlineData(1, 1)]
+        [InlineData(2, 9)]
+        [InlineData(3, 7)]
+        public void AbilityCardService_Should_Return_Correct_Number_Of_Cards(int classId, int expectedNumber)
+        {
+            AbilityCardService_Should_Return_Correct_Number_Of_Cards_Base(DataDir, classId, expectedNumber);
+        }
+    }
+}

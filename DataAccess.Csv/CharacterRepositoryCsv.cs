@@ -7,15 +7,20 @@ using System.Threading.Tasks;
 using CsvHelper;
 using GloomhavenAbilityManager.DataAccess.Contracts.Data;
 using GloomhavenAbilityManager.DataAccess.Contracts.Exceptions;
+using GloomhavenAbilityManager.DataAccess.Contracts.interfaces;
 using GloomhavenAbilityManager.DataAccess.Contracts.Interfaces;
 
 namespace GloomhavenAbilityManager.DataAccess.Csv
 {
     public class CharacterRepositoryCsv : ICharacterRepository
     {
+        private readonly IFileSystem _fileSystem;
+        private readonly ICsvConfiguration _configuration;
         private IAbilityCardRepository _cardRepository;
-        public CharacterRepositoryCsv(IAbilityCardRepository cardRepository)
+        public CharacterRepositoryCsv(IFileSystem fileSystem, ICsvConfiguration configuration, IAbilityCardRepository cardRepository)
         {
+            _fileSystem = fileSystem;
+            _configuration = configuration;
             _cardRepository = cardRepository;
         }
 
@@ -36,11 +41,11 @@ namespace GloomhavenAbilityManager.DataAccess.Csv
 
         private List<CharacterDataObject> ReadCharacters()
         {
-            string fileName = FileNames.Characters;
-
+            string fileName = Path.Combine(_configuration.DataDir, _configuration.CharactersFileName);
+          
             try
             {
-                var csvFileReader = new CsvFileReader<CharacterDataObject>(new FileSystem(), fileName);
+                var csvFileReader = new CsvFileReader<CharacterDataObject>(_fileSystem, fileName);
                 return csvFileReader.GetAll();
             }
             catch (Exception ex)
@@ -51,11 +56,11 @@ namespace GloomhavenAbilityManager.DataAccess.Csv
 
         private List<CharacterAbilityCardRelation> ReadRelations()
         {
-            string fileName = FileNames.CharacterCards;
-
+            string fileName = Path.Combine(_configuration.DataDir, _configuration.CharacterCardsFileName);
+         
             try
             {
-                var csvFileReader = new CsvFileReader<CharacterAbilityCardRelation>(new FileSystem(), fileName);
+                var csvFileReader = new CsvFileReader<CharacterAbilityCardRelation>(_fileSystem, fileName);
                 return csvFileReader.GetAll();
             }
             catch (Exception ex)
@@ -66,11 +71,11 @@ namespace GloomhavenAbilityManager.DataAccess.Csv
 
         public void SaveAll(IEnumerable<CharacterDataObject> characters)
         {
-            string fileName = FileNames.Characters;
-
+            string fileName = Path.Combine(_configuration.DataDir, _configuration.CharactersFileName);
+            
             try
             {
-                var csvFileWriter = new CsvFileWriter<CharacterDataObject>(new FileSystem(), fileName);
+                var csvFileWriter = new CsvFileWriter<CharacterDataObject>(_fileSystem, fileName);
                 csvFileWriter.SaveAll(characters);
             }
             catch (Exception ex)

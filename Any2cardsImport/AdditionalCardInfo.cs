@@ -12,7 +12,7 @@ namespace GloomhavenAbilityManager.Any2cardsImport
 
         public override string ToString()
         {
-            return $"{nameof(AdditionalCardInfo)} for {Name} ({Level}, {Id}";
+            return $"{nameof(AdditionalCardInfo)} for {Name} ({Level}, {Id}, {FileName}";
         }
     }
 }
