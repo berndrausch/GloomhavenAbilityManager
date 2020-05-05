@@ -2,9 +2,11 @@
 
 namespace GloomhavenAbilityManager.DataAccess.Csv
 {
-    public class CsvConfigurationProduction : ICsvConfiguration
+    public class CsvConfiguration : ICsvConfiguration
     {
-        public string DataDir => "DataAccess.Csv";
+        public CsvConfiguration(string dataDir) => DataDir = dataDir;
+
+        public string DataDir { get; }
         public string CardsFileName => "cards.csv";
         public string CharactersFileName => "characters.csv";
         public string ClassesFileName => "classes.csv";

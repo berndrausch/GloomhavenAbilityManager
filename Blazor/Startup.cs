@@ -1,7 +1,12 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
+using System.IO.Abstractions;
 using System.Linq;
+using System.Net.NetworkInformation;
+using System.Reflection;
 using System.Threading.Tasks;
+using GloomhavenAbilityManager.DataAccess.Contracts.interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Hosting;
@@ -32,6 +37,8 @@ namespace GloomhavenAbilityManager.Blazor
         {
             services.AddRazorPages();
             services.AddServerSideBlazor();
+            services.AddSingleton<IFileSystem, FileSystem>();
+            services.AddSingleton<ICsvConfiguration>(new CsvConfiguration(GetCsvDataDir()));
             services.AddSingleton<IAbilityCardRepository, AbilityCardRepositoryCsv>();
             services.AddSingleton<ICharacterRepository,CharacterRepositoryCsv>();
             services.AddSingleton<ICharacterClassRepository, CharacterClassRepositoryCsv>();
@@ -40,6 +47,17 @@ namespace GloomhavenAbilityManager.Blazor
             services.AddSingleton<ICharacterService, CharacterService>();
         }
 
+        private string GetCsvDataDir()
+        {
+            string csvDataDir = Configuration["CsvDataDir"];
+            if (Directory.Exists(csvDataDir))
+            {
+                return csvDataDir;
+            }
+            string assemblyLocation = Assembly.GetExecutingAssembly().Location;
+            return Path.Combine(Path.GetDirectoryName(assemblyLocation), csvDataDir);
+        }
+       
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
