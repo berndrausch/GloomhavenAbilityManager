@@ -100,16 +100,16 @@ namespace GloomhavenAbilityManager.DataAccess.Csv
                 character.SelectedCards = null;
             }
 
-            fileName = FileNames.CharacterCards;
+            fileName = Path.Combine(_configuration.DataDir, _configuration.CharacterCardsFileName);
 
             try
             {
-                var csvFileWriter = new CsvFileWriter<CharacterAbilityCardRelation>(new FileSystem(), fileName);
+                var csvFileWriter = new CsvFileWriter<CharacterAbilityCardRelation>(_fileSystem, fileName);
                 csvFileWriter.SaveAll(relations);
             }
             catch (Exception ex)
             {
-                throw new DataAccessException($"Unable to write character cards from {fileName}", ex);
+                throw new DataAccessException($"Unable to write character cards to {fileName}", ex);
             }
         }
     }
