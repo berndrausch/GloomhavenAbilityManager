@@ -2,6 +2,8 @@ using Xunit;
 using GloomhavenAbilityManager.DataAccess.Csv;
 using System.IO.Abstractions.TestingHelpers;
 using System.Linq;
+using System.Collections.Generic;
+using GloomhavenAbilityManager.Logic.Contracts.Data;
 
 namespace GloomhavenAbilityManager.Logic.Tests
 {
@@ -90,6 +92,38 @@ namespace GloomhavenAbilityManager.Logic.Tests
             var actualResult = sut.GetCharacterClassCards(classId);
 
             Assert.Equal(expectedNumber, actualResult.Count());
+        }
+
+        protected void CharacterService_Should_Save_Changed_Cards_Base(string dataDir, int characterId, IEnumerable<int> poolCards, IEnumerable<int> selectedCards)
+        {
+            MockFileSystemSetup.SetUpFileSystem(FileSystem, CsvConfiguration, dataDir);
+
+            AbilityCardService cardService = new AbilityCardService(_cardRepository);
+            CharacterService sut = new CharacterService(_charRepository, cardService);
+
+            Character character = sut.GetCharacter(characterId);
+
+            character.PoolCards = poolCards.Select( id => cardService.GetCard(id)).ToList();
+            character.SelectedCards = selectedCards.Select( id => cardService.GetCard(id)).ToList();
+
+            sut.UpdateCharacter(character);
+
+            Character actualCharacter = sut.GetCharacter(characterId);
+
+            Assert.Equal(poolCards.Count(), actualCharacter.PoolCards.Count());
+            Assert.Equal(selectedCards.Count(), actualCharacter.SelectedCards.Count());
+
+            foreach(var id in poolCards)
+            {
+                Assert.Contains(id, actualCharacter.PoolCards.Select( card => card.Id));
+            }
+
+            foreach(var id in selectedCards)
+            {
+                Assert.Contains(id, actualCharacter.SelectedCards.Select( card => card.Id));
+            }
+            
+
         }
 
     }
