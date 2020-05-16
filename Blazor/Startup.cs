@@ -54,8 +54,8 @@ namespace GloomhavenAbilityManager.Blazor
             {
                 return csvDataDir;
             }
-            string assemblyLocation = Assembly.GetExecutingAssembly().Location;
-            return Path.Combine(Path.GetDirectoryName(assemblyLocation), csvDataDir);
+            
+            return Path.Combine(AssemblyDirectory.Get(), csvDataDir);
         }
        
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
