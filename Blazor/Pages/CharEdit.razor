@@ -50,8 +50,8 @@ else
                 {
                     var card = poolCards[row * cardsPerRow + col];
                     <td>
-                        @card.Name
-                        <br><img src="@card.ImagePath" height="320" width="240">
+                        <div class="cardname">@card.Name</div>
+                        <img class="cardimage" src="@card.ImagePath" />
                     </td>
                 }
             }
