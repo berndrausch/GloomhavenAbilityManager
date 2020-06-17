@@ -64,5 +64,13 @@ namespace GloomhavenAbilityManager.Logic.Tests
         {
             CharacterService_Should_Save_Changed_Cards_Base(DataDir, characterId,poolCards, selectedCards);
         }
+
+        [Theory]
+        [InlineData("Test", 2, new int[0], new int[0])]
+        [InlineData("Test", 2, new[] { 9, 10, 11, 12, 13, 14, 15 }, new[] { 9, 15 })]
+        public void CharacterService_Should_Save_New_Character(string name, int classId, IEnumerable<int> poolCards, IEnumerable<int> selectedCards)
+        {
+            CharacterService_Should_Save_New_Character_Base(DataDir, name, classId, poolCards, selectedCards);
+        }
     }
 }

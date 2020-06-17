@@ -143,9 +143,36 @@ namespace GloomhavenAbilityManager.Logic.Tests
             {
                 Assert.Contains(id, actualCharacter.SelectedCards.Select( card => card.Id));
             }
-            
-
         }
 
+        protected void CharacterService_Should_Save_New_Character_Base(string dataDir, string name, int classId, IEnumerable<int> poolCards, IEnumerable<int> selectedCards)
+        {
+            MockFileSystemSetup.SetUpFileSystem(FileSystem, CsvConfiguration, dataDir);
+
+            AbilityCardService cardService = new AbilityCardService(_cardRepository);
+            CharacterService sut = new CharacterService(_charRepository, cardService);
+
+            Character character = new Character()
+            {
+                Id = -1,
+                Name = name,
+                ClassId = classId,
+                PoolCards = poolCards.Select( cid => cardService.GetCard(cid)).ToList(),
+                SelectedCards = selectedCards.Select( cid => cardService.GetCard(cid)).ToList()
+            };
+            
+            sut.AddCharacter(character);
+
+            Assert.True(character.Id >= 0, $"Character Id should be >= 0, but is {character.Id}");
+            Assert.True(sut.GetCharacters().Any( c => c.Id == character.Id), "GetCharacters should contain new character, but only contains " + string.Join(",", sut.GetCharacters().Select( c => c.Id.ToString())));
+
+            Character actualCharacter = sut.GetCharacter(character.Id);
+
+            Assert.Equal(character.Id, actualCharacter.Id);
+            Assert.Equal(name, actualCharacter.Name);
+            Assert.Equal(classId, actualCharacter.ClassId);
+            Assert.Equal(poolCards.Count(), actualCharacter.PoolCards.Count());
+            Assert.Equal(selectedCards.Count(), actualCharacter.SelectedCards.Count());
+        }
     }
 }
