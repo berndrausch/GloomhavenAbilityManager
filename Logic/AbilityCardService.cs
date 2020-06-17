@@ -81,6 +81,11 @@ namespace GloomhavenAbilityManager.Logic
                 return true;
             }
 
+            if (card.Level.Equals("M", StringComparison.CurrentCultureIgnoreCase))
+            {
+                return true;
+            }
+
             if (int.TryParse(card.Level, out int cardLevel))
             {
                 return cardLevel <= characterLevel;

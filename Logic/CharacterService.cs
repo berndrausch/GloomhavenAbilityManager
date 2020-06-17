@@ -48,6 +48,8 @@ namespace GloomhavenAbilityManager.Logic
         {
             var allCharacters = _characterRepository.GetAll().ToList();
             character.Id = allCharacters.Select(c => c.Id).Max() + 1;
+            character.Level = 1;
+            character.PoolCards = _cardService.GetAvailableCards(character).ToList();
             allCharacters.Add(CharacterConverter.ToDataObject(character));
             _characterRepository.SaveAll(allCharacters);
         }
