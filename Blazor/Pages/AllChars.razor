@@ -53,8 +53,10 @@ else
 
     protected override void OnInitialized()
     {
-        characters = CharacterService.GetCharacters().OrderBy(c => c.Name);
+        UpdateCharacters();
     }
+
+    private void UpdateCharacters() => characters = CharacterService.GetCharacters().OrderBy(c => c.Name);
 
 
     private void OnNewCharacter()
@@ -62,5 +64,6 @@ else
         Console.WriteLine(nameof(OnNewCharacter));
         CharacterService.AddCharacter(newCharacter);
         newCharacter = new Character();
+        UpdateCharacters();
     }
 }
