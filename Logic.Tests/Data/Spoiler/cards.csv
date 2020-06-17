@@ -288,6 +288,37 @@ Id;ClassId;Level;Name;ImagePath
 373;8;8;Commanding Presence (Gebieterische Präsenz);character-ability-cards\SS\commanding-presence.png
 374;8;9;Captivating Performance (Fesselnde Vorstellung);character-ability-cards\SS\captivating-performance.png
 375;8;9;Shadow Puppets (Schattenspiel);character-ability-cards\SS\shadow-puppets.png
+407;12;1;First Aid;character-ability-cards\SB\first-aid.png
+408;12;1;Hand Of The Surgeon;character-ability-cards\SB\hand-of-the-surgeon.png
+409;12;1;Hold Back The Pain;character-ability-cards\SB\hold-back-the-pain.png
+410;12;1;Booster Shot;character-ability-cards\SB\booster-shot.png
+411;12;1;Bloody Saw;character-ability-cards\SB\bloody-saw.png
+412;12;1;Curative Mixture;character-ability-cards\SB\curative-mixture.png
+413;12;1;Syringe;character-ability-cards\SB\syringe.png
+414;12;1;Battlefield Medicine;character-ability-cards\SB\battlefield-medicine.png
+415;12;1;Triage;character-ability-cards\SB\triage.png
+416;12;1;Mobile Response;character-ability-cards\SB\mobile-response.png
+417;12;M;Medical Pack;character-ability-cards\SB\medical-pack.png
+424;12;M;Large Medical Pack;character-ability-cards\SB\large-medical-pack.png
+428;12;X;Prevention Is Key;character-ability-cards\SB\prevention-is-key.png
+429;12;X;Teamwork;character-ability-cards\SB\teamwork.png
+430;12;X;Vaccine;character-ability-cards\SB\vaccine.png
+431;12;2;Hamstring;character-ability-cards\SB\hamstring.png
+432;12;2;Precaution;character-ability-cards\SB\precaution.png
+433;12;3;Regenerative Tissue;character-ability-cards\SB\regenerative-tissue.png
+434;12;3;Vital Strike;character-ability-cards\SB\vital-strike.png
+435;12;4;Blood Transfusion;character-ability-cards\SB\blood-transfusion.png
+436;12;4;Do No Harm;character-ability-cards\SB\do-no-harm.png
+437;12;5;Research The Cure;character-ability-cards\SB\research-the-cure.png
+438;12;5;Amputate;character-ability-cards\SB\amputate.png
+439;12;6;Euthanize;character-ability-cards\SB\euthanize.png
+440;12;6;Prescription;character-ability-cards\SB\prescription.png
+441;12;7;Master Physician;character-ability-cards\SB\master-physician.png
+442;12;7;Surgeons Satchel;character-ability-cards\SB\surgeons-satchel.png
+443;12;8;Bedside Manner;character-ability-cards\SB\bedside-manner.png
+444;12;8;Gentlemans Anger;character-ability-cards\SB\gentlemans-anger.png
+445;12;9;Prep For Surgery;character-ability-cards\SB\prep-for-surgery.png
+446;12;9;Grisly Trauma;character-ability-cards\SB\grisly-trauma.png
 476;7;1;Bear Reference (Bären Referenz);character-ability-cards\BT\bear-reference.png
 477;7;1;Disorienting Roar (Verwirrendes Brüllen);character-ability-cards\BT\disorienting-roar.png
 478;7;1;Spirit Swap (Seelentausch);character-ability-cards\BT\spirit-swap.png

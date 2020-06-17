@@ -64,6 +64,27 @@ namespace GloomhavenAbilityManager.Logic.Tests
             Assert.Equal(expectedNumberOfSelectedCards, actualChar.SelectedCards.Count());
         }
 
+        protected void CharacterService_Should_Add_Character_Base(string dataDir, int classId, string name)
+        {
+            MockFileSystemSetup.SetUpFileSystem(FileSystem, CsvConfiguration, dataDir);
+
+            AbilityCardService cardService = new AbilityCardService(_cardRepository);
+            CharacterService sut = new CharacterService(_charRepository, cardService);
+
+            Character newCharacter = new Character();
+            newCharacter.ClassId = classId;
+            newCharacter.Name = name;
+
+            sut.AddCharacter(newCharacter);
+
+            var actualChar = sut.GetCharacter(newCharacter.Id);
+            Assert.Equal(name, actualChar.Name);
+            Assert.Equal(1, actualChar.Level);
+            Assert.Equal(classId, actualChar.ClassId);
+            Assert.NotEmpty(actualChar.PoolCards);
+            Assert.Empty(actualChar.SelectedCards);
+        }
+
         protected void CharacterClassService_Should_Return_Correct_Number_Of_Classes_Base(string dataDir, int expectedNumber)
         {
             MockFileSystemSetup.SetUpFileSystem(FileSystem, CsvConfiguration, dataDir);
