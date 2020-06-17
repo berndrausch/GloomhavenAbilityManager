@@ -128,7 +128,10 @@ else
     private void UpdateAvailableCards()
     {
         availableCards = CardService.GetAvailableCards(character).ToList();
-        selectedAvailableCardId = availableCards.First().Id;
+        if (availableCards.Any())
+        { 
+            selectedAvailableCardId = availableCards.First().Id;
+        }
     }
 
     private void OnCharacterLevelChanged() => UpdateAvailableCards();
